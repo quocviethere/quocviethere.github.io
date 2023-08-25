@@ -1,0 +1,29 @@
+- id: anti-dreambooth
+  title: "Anti-DreamBooth: Protecting Users from Personalized Text-to-Image Synthesis"
+  venue: ICCV, 2023
+  description: "A security booth safeguards your privacy against malicious threats by preventing DreamBooth from synthesizing photo-realistic images of you."
+  project_page: "https://anti-dreambooth.github.io/"
+  github: VinAIResearch/Anti-DreamBooth
+  arxiv: 2303.15433
+  image: anti_dreambooth_before.jpg
+  image_mouseover: anti_dreambooth_after.mp4
+  authors:
+    - thanhlv
+    - haopt
+    - thuannh
+    - quandm
+    - ngoctnq
+    - anhtt
+- id: creps
+  title: "Efficient Scale-Invariant Generator with Column-Row Entangled Pixel Synthesis"
+  venue: CVPR, 2023
+  description: "An efficient and geometry-invariant generator for synthesizing high-resolution images without using spatial convolutions or a coarse-to-fine design."
+  project_page: "https://thuanz123.github.io/creps/"
+  github: VinAIResearch/CREPS
+  arxiv: 2303.14157
+  image: creps_before.jpg
+  image_mouseover: creps_after.mp4
+  authors:
+    - thuannh
+    - thanhlv
+    - anhtt

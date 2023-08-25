@@ -1,18 +1,27 @@
-# Authors
-
-Name Name:
-  name        : "Name Name"
-  uri         : "http://name.com"
-  email       : "name@name.com"
-  bio         : "This is the first name."
-  avatar      : "bio-photo-2.jpg"
-  twitter     : "name"
-  google_plus : "Name"
-
-Name2 Name2:
-  name        : "Name2 Name2"
-  email       : "name2@name2.com"
-  bio         : "I ordered what?"
-  avatar      : "bio-photo.jpg"
-  twitter     : "name2"
-  google_plus : "Name"
+thuannh:
+  first_name: Thuan
+  middle_name: Hoang	
+  last_name: Nguyen
+  website: https://thuanz123.github.io/
+  is_me: true
+thanhlv:
+  first_name: Thanh
+  middle_name: Van
+  last_name: Le
+  website: https://github.com/Luvata/
+anhtt:
+  first_name: Anh
+  last_name: Tran
+  website: https://sites.google.com/site/anhttranusc/
+haopt:
+  first_name: Hao
+  last_name: Phung
+  website: https://hao-pt.github.io/
+quandm:
+  first_name: Quan
+  last_name: Dao
+  website: https://quandao10.github.io/
+ngoctnq:
+  first_name: Ngoc
+  last_name: Tran
+  website: https://ngoctnq.github.io/
