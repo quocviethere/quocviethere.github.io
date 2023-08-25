@@ -1,27 +1,35 @@
-thuannh:
-  first_name: Thuan
-  middle_name: Hoang	
+vietnq:
+  first_name: Viet
+  middle_name: Quoc	
   last_name: Nguyen
-  website: https://thuanz123.github.io/
+  website: https://quocviethere.github.io/
   is_me: true
-thanhlv:
+
+thanhdnh:
   first_name: Thanh
-  middle_name: Van
-  last_name: Le
-  website: https://github.com/Luvata/
-anhtt:
-  first_name: Anh
-  last_name: Tran
-  website: https://sites.google.com/site/anhttranusc/
-haopt:
-  first_name: Hao
-  last_name: Phung
-  website: https://hao-pt.github.io/
-quandm:
-  first_name: Quan
-  last_name: Dao
-  website: https://quandao10.github.io/
-ngoctnq:
-  first_name: Ngoc
-  last_name: Tran
-  website: https://ngoctnq.github.io/
+  middle_name: Ngoc Hoang
+  last_name: Dang
+  website: https://www.thanhlab.com/
+
+quangnn:
+  first_name: Quang
+  middle_name: Nhat
+  last_name: Nguyen
+  website: https://www.linkedin.com/in/quangnhatnguyen/
+
+kingn:
+  first_name: King
+  last_name: Nguyen
+  website: https://github.com/nguynking
+
+toannd:
+  first_name: Toan
+  middle_name: Dinh
+  last_name: Nguyen
+  website: https://github.com/Kudasai03
+
+huudt:
+  first_name: Huu
+  middle_name: Dinh
+  last_name: Trong
+  website: https://github.com/dinhtronghuu

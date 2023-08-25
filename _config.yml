@@ -18,21 +18,15 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Thuan Hoang Nguyen
-name: Thuan Hoang Nguyen
-position: Research Resident 
-email: leejohnthuan@gmail.com
+title: Viet Quoc Nguyen
+name: Viet Quoc Nguyen
+email: quocviethere@gmail.com
 description: >-
-  I am a research resident at [VinAI Research](https://vinai.io), where I work on deep generative models.
-
-
-  Previously, I recieved a B.S. degree in Computer Science at the [Ho Chi Minh University of Technology](https://hcmut.edu.vn/en/), Vietnam. 
-  I was advised by [Duc Dung Nguyen](https://scholar.google.com/citations?user=xV7uHJgAAAAJ&hl=en/).
+  I am a junior majoring in Data Science at [University of Economics Ho Chi Minh City (UEH)](https://www.ueh.edu.vn/)
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://thuanz123.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: thuanz123
-github_username: thuanz123
-google_scholar: 6xS-7kMAAAAJ
+url: "https://quocviethere.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: quocvietehere
+github_username: quocvietehere
 
 # Build settings
 theme: minima
