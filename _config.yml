@@ -25,7 +25,7 @@ description: >-
   I am a junior majoring in Data Science at [University of Economics Ho Chi Minh City (UEH)](https://www.ueh.edu.vn/)
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://quocviethere.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: quocvietehere
+twitter_username: quocviethere
 github_username: quocviethere
 
 # Build settings
