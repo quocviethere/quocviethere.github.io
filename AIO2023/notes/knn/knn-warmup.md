@@ -1,4 +1,4 @@
-# Introduciton to KNN and Entropy
+# Introduction to KNN and Entropy
 
 Instructor: Dr. Vinh
 
