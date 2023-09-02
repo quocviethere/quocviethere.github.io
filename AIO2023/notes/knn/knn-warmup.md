@@ -56,13 +56,13 @@ $$
 
 | Petal Length  | Label | Distance | Distance |
 |---------------|-------|----------|----------|
-| 1.4           | 0     | 1        | 1        |
+| 1.4           | 0     | 1        | **1**        |
 | 1             | 0     | 1.4      | 1.4      |
-| 1.5           | 0     | 0.9      | 0.9      |
-| 3.1           | 1     | 0.7      | 0.7      |
+| 1.5           | 0     | 0.9      | **0.9**      |
+| 3.1           | 1     | **0.7**      | **0.7**      |
 | 3.7           | 1     | 1.3      | 1.3      |
 | 4.1           | 1     | 1.7      | 1.7      |
-| New data: 2.4 | 1     | $k=1$    | $k=3$    |
+| New data: 2.4 | 1     | $$k=1$$   | $$k=3$$    |
 
 For $$k=1$$, the smallest distance is 0.7, therefore the label of the new data is the same as the label with the smallest distance, which is 1.
 
