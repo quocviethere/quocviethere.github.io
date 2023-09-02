@@ -91,7 +91,7 @@ $$
 
 ![](KNN%209ab0cb217f23436785a130f778bb220d/Screen_Shot_2023-08-29_at_21.22.50.png)
 
-Vocabulary size $$|V| = 9$$
+Vocabulary size $$\|V\| = 9$$
 
 ``` python
 vectorizer = CountVectorizer()
