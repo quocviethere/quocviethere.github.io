@@ -64,9 +64,9 @@ $$
 | 4.1           | 1     | 1.7      | 1.7      |
 | New data: 2.4 | 1     | $k=1$    | $k=3$    |
 
-For $k=1$, the smallest distance is 0.7, therefore the label of the new data is the same as the label with the smallest distance, which is 1.
+For \(k=1\), the smallest distance is 0.7, therefore the label of the new data is the same as the label with the smallest distance, which is 1.
 
-For $k=3$, the 3 smallest distances are 0.7, 0.9, and 1, two of which data points have label of 0, by majority voting, the label of the new data is now 0.
+For \(k=3\), the 3 smallest distances are 0.7, 0.9, and 1, two of which data points have the label of 0, by majority voting, the label of the new data is now 0.
 
 ``` python
 distances = np.sqrt(np.sum((x_data-x_test)**2,axis = 1))
@@ -89,7 +89,7 @@ $$
 
 ## Text classification
 
-![Screen Shot 2023-08-29 at 21.22.50.png](KNN%209ab0cb217f23436785a130f778bb220d/Screen_Shot_2023-08-29_at_21.22.50.png)
+![](KNN%209ab0cb217f23436785a130f778bb220d/Screen_Shot_2023-08-29_at_21.22.50.png)
 
 Vocabulary size $|V| = 9$
 
@@ -126,10 +126,10 @@ $$
 \mathbb{E}(X) = \sum xp(x)
 $$
 
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-
 Entropy:
 
 $$H(X) = - \underset{x \in \mathcal{X}}{\sum}p(x)logp(x)$$
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
