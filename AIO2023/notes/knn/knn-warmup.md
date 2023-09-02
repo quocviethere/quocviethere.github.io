@@ -41,7 +41,7 @@ Chebyshev distance
 -   Data processing and select $$K$$
 -   Compute distances
 -   Sort distances
--   Get top $K$ points
+-   Get top $$K$$ points
 -   Vote and return majority
 
 There are multiple ways to choose $$K$$, but conventionally $$K = \sqrt{N}$$ where $$N$$ is the number of samples (data points).
