@@ -1,4 +1,4 @@
-# AIO2023 NOTE | 230830 | KNN Warm-up
+## AIO2023 NOTE | 230830 | KNN Warm-up
 
 Instructor: Dr. Vinh
 
@@ -38,13 +38,13 @@ Chebyshev distance
 
 **Procedure**
 
--   Data processing and select \(K\)
+-   Data processing and select $$K$$
 -   Compute distances
 -   Sort distances
 -   Get top $K$ points
 -   Vote and return majority
 
-There are multiple ways to choose \(K\), but conventionally \(K = \sqrt{N}\) where \(N\) is the number of samples (data points).
+There are multiple ways to choose $$K$$, but conventionally $$K = \sqrt{N}$$ where $$N$$ is the number of samples (data points).
 
 ## Case Study
 
@@ -64,9 +64,9 @@ $$
 | 4.1           | 1     | 1.7      | 1.7      |
 | New data: 2.4 | 1     | $k=1$    | $k=3$    |
 
-For \(k=1\), the smallest distance is 0.7, therefore the label of the new data is the same as the label with the smallest distance, which is 1.
+For $$k=1$$, the smallest distance is 0.7, therefore the label of the new data is the same as the label with the smallest distance, which is 1.
 
-For \(k=3\), the 3 smallest distances are 0.7, 0.9, and 1, two of which data points have the label of 0, by majority voting, the label of the new data is now 0.
+For $$k=3$$, the 3 smallest distances are 0.7, 0.9, and 1, two of which data points have the label of 0, by majority voting, the label of the new data is now 0.
 
 ``` python
 distances = np.sqrt(np.sum((x_data-x_test)**2,axis = 1))
@@ -114,7 +114,7 @@ Since the probability of $A$ happening is larger, we would become more surprised
 
 $$surprise(E) = \dfrac{1}{P(E)}$$
 
-when \(P(E) \rightarrow 0\), $surprise(E)$ would go to infinity, on the other hand, when \(P(E) \rightarrow 1$, $surprise(E) = 1\), meaning we are not surprised at all. Intuitively, when we are not surprised at all we want the value to be equal to 0, therefore we will take the $log$ of \(surprise(E)\) since \(log(1) = 0\), the formula can now be written as:
+when $$P(E) \rightarrow 0$$, $surprise(E)$ would go to infinity, on the other hand, when $$P(E) \rightarrow 1$, $surprise(E) = 1$$, meaning we are not surprised at all. Intuitively, when we are not surprised at all we want the value to be equal to 0, therefore we will take the $log$ of $$surprise(E)$$ since $$log(1) = 0$$, the formula can now be written as:
 
 $$
 surprise(E) = log \left( \dfrac{1}{P(E)}\right)
@@ -130,18 +130,6 @@ Entropy:
 
 $$H(X) = - \underset{x \in \mathcal{X}}{\sum}p(x)logp(x)$$
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [['\\(', '\\)']],
-      displayMath: [['$$', '$$']],
-      processEscapes: true,
-    },
-    TeX: {
-      extensions: ['AMSmath.js', 'AMSsymbols.js', 'noErrors.js', 'noUndefined.js'],
-    },
-  });
-</script>
 <script type="text/javascript" async
   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
