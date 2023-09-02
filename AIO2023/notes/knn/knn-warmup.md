@@ -1,5 +1,3 @@
-## AIO2023 NOTE | 230830 | KNN Warm-up
-
 Instructor: Dr. Vinh
 
 **Deliverables:** 
@@ -91,7 +89,7 @@ $$
 
 ![](KNN%209ab0cb217f23436785a130f778bb220d/Screen_Shot_2023-08-29_at_21.22.50.png)
 
-Vocabulary size $|V| = 9$
+Vocabulary size $$|V| = 9$$
 
 ``` python
 vectorizer = CountVectorizer()
@@ -106,7 +104,7 @@ X = vectorizer.fit_transform(corpus)
 
 # Entropy
 
-Suppose we have 10 balls, 9 of which are red and there is only 1 blue ball. Let $A$ be the event that the ball is red and $B$ be the event that the ball is blue, we have that:
+Suppose we have 10 balls, 9 of which are red and there is only 1 blue ball. Let $$A$$ be the event that the ball is red and $$B$$ be the event that the ball is blue, we have that:
 
 $$P(E_1) = 0.9 \text{ and } P(E_2) = 0.1$$
 
@@ -114,7 +112,7 @@ Since the probability of $A$ happening is larger, we would become more surprised
 
 $$surprise(E) = \dfrac{1}{P(E)}$$
 
-when $$P(E) \rightarrow 0$$, $surprise(E)$ would go to infinity, on the other hand, when $$P(E) \rightarrow 1$, $surprise(E) = 1$$, meaning we are not surprised at all. Intuitively, when we are not surprised at all we want the value to be equal to 0, therefore we will take the $log$ of $$surprise(E)$$ since $$log(1) = 0$$, the formula can now be written as:
+when $$P(E) \rightarrow 0$$, $surprise(E)$ would go to infinity, on the other hand, when $$P(E) \rightarrow 1$$, $$surprise(E) = 1$$, meaning we are not surprised at all. Intuitively, when we are not surprised at all we want the value to be equal to 0, therefore we will take the $log$ of $$surprise(E)$$ since $$log(1) = 0$$, the formula can now be written as:
 
 $$
 surprise(E) = log \left( \dfrac{1}{P(E)}\right)
