@@ -18,8 +18,6 @@ KNN is an unsupervised learning approach.
 
 ![KNN steps](KNN%209ab0cb217f23436785a130f778bb220d/Screen_Shot_2023-08-29_at_20.20.43.png)
 
-![KNN_Working.gif](KNN%209ab0cb217f23436785a130f778bb220d/KNN_Working.gif)
-
 ## Distance
 
 Distance càng nhỏ → thuộc tính càng giống nhau
