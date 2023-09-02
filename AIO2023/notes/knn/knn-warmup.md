@@ -1,6 +1,16 @@
-# KNN
+# AIO2023 NOTE | 230830 | KNN Warm-up
 
-Type: Not started Deliverables: <https://drive.google.com/file/d/1kpFcQZCx39MemG4KGU_P1q2PLGUz0omR/view?usp=drive_link>, <https://drive.google.com/drive/folders/1DClBdQuOwDWf1zpImKjAaXFur8uxPm7F> Further Reading: <https://machinelearningcoban.com/2017/01/08/knn/>, <https://www.youtube.com/watch?v=HVXime0nQeI&ab_channel=StatQuestwithJoshStarmer> Last edited time: September 2, 2023 11:04 AM
+Instructor: Dr. Vinh
+
+Deliverables: 
+- Slide: <https://drive.google.com/file/d/1kpFcQZCx39MemG4KGU_P1q2PLGUz0omR/view?usp=drive_link>
+- Code: <https://drive.google.com/drive/folders/1DClBdQuOwDWf1zpImKjAaXFur8uxPm7F> 
+
+Further Reading: 
+1. <https://machinelearningcoban.com/2017/01/08/knn/>
+2. <https://www.youtube.com/watch?v=HVXime0nQeI&ab_channel=StatQuestwithJoshStarmer> 
+
+Last edited time: September 2, 2023 11:04 AM
 
 # Introduction to KNN
 
@@ -117,6 +127,10 @@ $$
 $$
 \mathbb{E}(X) = \sum xp(x)
 $$
+
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 
 Entropy:
 
