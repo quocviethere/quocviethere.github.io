@@ -2,15 +2,15 @@
 
 Instructor: Dr. Vinh
 
-Deliverables: 
-- Slide: <https://drive.google.com/file/d/1kpFcQZCx39MemG4KGU_P1q2PLGUz0omR/view?usp=drive_link>
-- Code: <https://drive.google.com/drive/folders/1DClBdQuOwDWf1zpImKjAaXFur8uxPm7F> 
+**Deliverables:** 
+- [Slide](https://drive.google.com/file/d/1kpFcQZCx39MemG4KGU_P1q2PLGUz0omR/view?usp=drive_link)
+- [Code](https://drive.google.com/drive/folders/1DClBdQuOwDWf1zpImKjAaXFur8uxPm7F)
 
 Further Reading: 
-1. <https://machinelearningcoban.com/2017/01/08/knn/>
-2. <https://www.youtube.com/watch?v=HVXime0nQeI&ab_channel=StatQuestwithJoshStarmer> 
+1. [Machine Learning Cơ Bản Blog](https://machinelearningcoban.com/2017/01/08/knn/)
+2. [StatQuest](https://www.youtube.com/watch?v=HVXime0nQeI&ab_channel=StatQuestwithJoshStarmer) 
 
-Last edited time: September 2, 2023 11:04 AM
+**Last edited time:** September 2, 2023 11:04 AM
 
 # Introduction to KNN
 
@@ -38,13 +38,13 @@ Chebyshev distance
 
 **Procedure**
 
--   Data processing and select $K$
+-   Data processing and select \(K\)
 -   Compute distances
 -   Sort distances
 -   Get top $K$ points
 -   Vote and return majority
 
-There are multiple ways to choose $K$, but conventionally $K = \sqrt{N}$ where $N$ is the number of samples (data points).
+There are multiple ways to choose \(K\), but conventionally \(K = \sqrt{N}\) where \(N\) is the number of samples (data points).
 
 ## Case Study
 
@@ -114,7 +114,7 @@ Since the probability of $A$ happening is larger, we would become more surprised
 
 $$surprise(E) = \dfrac{1}{P(E)}$$
 
-when $P(E) \rightarrow 0$, $surprise(E)$ would go to infinity, on the other hand, when $P(E) \rightarrow 1$, $surprise(E) = 1$, meaning we are not surprised at all. Intuitively, when we are not surprised at all we want the value to be equal to 0, therefore we will take the $log$ of $surprise(E)$ since $log(1) = 0$, the formula can now be written as:
+when \(P(E) \rightarrow 0\), $surprise(E)$ would go to infinity, on the other hand, when \(P(E) \rightarrow 1$, $surprise(E) = 1\), meaning we are not surprised at all. Intuitively, when we are not surprised at all we want the value to be equal to 0, therefore we will take the $log$ of \(surprise(E)\) since \(log(1) = 0\), the formula can now be written as:
 
 $$
 surprise(E) = log \left( \dfrac{1}{P(E)}\right)
