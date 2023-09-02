@@ -10,6 +10,7 @@
 * [Tech Interview Handbook Best Practice Questions](https://techinterviewhandbook.org/best-practice-questions/)
 * [Daily Coding Interview Practice](https://www.techseries.dev/daily)
 ---
+
 ## MySQL
 * [10 MySQL Database Interview Questions for Beginners and Intermediates](http://www.tecmint.com/10-mysql-database-interview-questions-for-beginners-and-intermediates/)
 * [100 MySQL interview questions](http://www.careerride.com/MySQL-Interview-Questions.aspx)
@@ -18,8 +19,8 @@
 * [40 Basic MySQL Interview Questions with Answers](http://www.testingbrain.com/interview/mysql-interview-questions.html)
 * [Top 50 MySQL Interview Questions & Answers from Career Guru](http://career.guru99.com/top-50-mysql-interview-questions-answers/)
 ---
-## Python
 
+## Python
 * [26 Essential Python Interview Questions from Adeva](https://adevait.com/python/interview-questions)
 * [20 Python interview questions and answers](http://www.careerride.com/python-interview-questions.aspx)
 * [11 Essential Python Interview Questions from Toptal](http://www.toptal.com/python/interview-questions)
@@ -37,6 +38,7 @@
 * [100 Python Interview Questions - Quick Refresher](https://www.techbeamers.com/python-interview-questions-programmers/)
 * [Top 100 Python Interview Questions from Edureka (2021)](https://www.edureka.co/blog/interview-questions/python-interview-questions/)
 ---
+
 ## Coding exercises
 
 * [Common interview questions and puzzles solved in several languages](https://github.com/mre/the-coding-interview)
@@ -49,6 +51,7 @@
 * [Top 50 Data Structure Interview Questions from Career Guru](http://career.guru99.com/top-50-data-structure-interview-questions/)
 * [What is Data Structure? | Top 40 Data Structure Interview Questions](https://www.interviewbit.com/data-structure-interview-questions/)
 ---
+
 ## Data Science
 * [Data Science Interview Questions for Top Tech Companies](https://www.dezyre.com/article/-data-science-interview-questions-for-top-tech-companies/189)
 * [66 Job Interview Questions for Data Scientists](http://www.datasciencecentral.com/profiles/blogs/66-job-interview-questions-for-data-scientists)
