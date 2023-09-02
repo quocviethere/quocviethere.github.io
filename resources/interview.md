@@ -1,5 +1,5 @@
 # Interview Resources
----
+
 ## Algorithms
 * [Comprehensive list of interview questions of top tech companies](https://github.com/rishabh115/Interview-Questions)
 * [A great list of Java interview questions](http://java2novice.com/java-interview-programs/)
@@ -9,7 +9,6 @@
 * [Top 15 Data Structures and Algorithm Interview Questions for Java programmer](http://javarevisited.blogspot.com.by/2013/03/top-15-data-structures-algorithm-interview-questions-answers-java-programming.html)
 * [Tech Interview Handbook Best Practice Questions](https://techinterviewhandbook.org/best-practice-questions/)
 * [Daily Coding Interview Practice](https://www.techseries.dev/daily)
----
 
 ## MySQL
 * [10 MySQL Database Interview Questions for Beginners and Intermediates](http://www.tecmint.com/10-mysql-database-interview-questions-for-beginners-and-intermediates/)
@@ -18,7 +17,6 @@
 * [28 MySQL interview questions from JavaTPoint.com](http://www.javatpoint.com/mysql-interview-questions)
 * [40 Basic MySQL Interview Questions with Answers](http://www.testingbrain.com/interview/mysql-interview-questions.html)
 * [Top 50 MySQL Interview Questions & Answers from Career Guru](http://career.guru99.com/top-50-mysql-interview-questions-answers/)
----
 
 ## Python
 * [26 Essential Python Interview Questions from Adeva](https://adevait.com/python/interview-questions)
@@ -44,13 +42,12 @@
 * [Common interview questions and puzzles solved in several languages](https://github.com/mre/the-coding-interview)
 * [Interactive, test-driven Python coding challenges (algorithms and data structures) typically found in coding interviews or coding competitions](https://github.com/donnemartin/interactive-coding-challenges)
 * [Interview questions solved in python](https://github.com/roseperrone/interview-questions)
----
+
 ## Data structures
 
 * [Top 15 Data Structures and Algorithm Interview Questions for Java programmer](http://javarevisited.blogspot.com.by/2013/03/top-15-data-structures-algorithm-interview-questions-answers-java-programming.html)
 * [Top 50 Data Structure Interview Questions from Career Guru](http://career.guru99.com/top-50-data-structure-interview-questions/)
 * [What is Data Structure? | Top 40 Data Structure Interview Questions](https://www.interviewbit.com/data-structure-interview-questions/)
----
 
 ## Data Science
 * [Data Science Interview Questions for Top Tech Companies](https://www.dezyre.com/article/-data-science-interview-questions-for-top-tech-companies/189)
