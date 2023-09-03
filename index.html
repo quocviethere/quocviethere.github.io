@@ -96,7 +96,9 @@ layout: null
       <div class="content">
         <ul>
           {% for news in site.data.news %}
+          <li>
             <b>{{ news.date }}</b>: {{ news.description | markdownify | remove: '<p>' | remove: '</p>' }}
+          </li>
           {% endfor %}
         </ul>
       </div>
