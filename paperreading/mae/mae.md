@@ -4,8 +4,6 @@ Tags: Computer Vision, Masked Image Modelling
 
 Authors: Kaiming He et al.
 
-Code: <https://github.com/facebookresearch/mae>
-
 Conferences/Journal: CVPR2022
 
 Last edited time: September 4, 2023 8:59 PM
