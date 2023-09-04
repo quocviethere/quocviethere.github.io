@@ -1,12 +1,16 @@
 # Masked Autoencoders are Scalable Vision Learners
 
-Tags: Computer Vision, Masked Image Modelling
+------------------------------------------------------------------------
 
-Authors: Kaiming He et al.
+*Keywords:* Autoencoder, Masked Image Modelling
 
-Conferences/Journal: CVPR2022
+*Authors:* Kaiming He et al.
 
-Last edited time: September 4, 2023 8:59 PM
+*Conferences/Journal:* CVPR2022
+
+*Last edited time:* September 4, 2023 8:59 PM
+
+------------------------------------------------------------------------
 
 Masked Autoencoder (MAE) is an *asymmetric* autoencoder architecture wherein the encoder first operates on a subset of images (without mask tokens) and a lightweight decoder that reconstructs the original image from the latent representation and mask tokens. Concretely, the input image is masked with multiple patches at random, the decoder then reconstructs the missing patches (in the pixel space). MAE achieves *87.7%* accuracy when fine-tuned on ImageNet-1K using Vanilla VitHuge model.
 
