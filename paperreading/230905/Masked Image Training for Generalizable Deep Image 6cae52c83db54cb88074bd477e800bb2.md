@@ -38,11 +38,11 @@ Making deep models that denoise image more generalizable by using masked trainin
 **Training procedure:**
 
 -   Transformers divide the input signal into tokens and process spatial information using self-attention layers
--   Project the image into $C$-dimensional feature tokens using a convolutional layer with kernel size of 1.
+-   Project the image into $$C$$-dimensional feature tokens using a convolutional layer with kernel size of 1.
 
 ![Effect of Input Mask and Attention Mask](Masked%20Image%20Training%20for%20Generalizable%20Deep%20Image%206cae52c83db54cb88074bd477e800bb2/Screen_Shot_2023-09-05_at_20.02.03.png)
 
-The input mask randomly masks out the feature tokens embedded by the first convolution layer and encourages the network to complete the masked information during training. Concretely, given the feature token tensor $\mathbf{f} \in \mathbb{R}^{H \times W \times C}$, the features tokens are randomly replaced with the `[mask token]` with probability $p_{IM}$ (mask ratio).
+The input mask randomly masks out the feature tokens embedded by the first convolution layer and encourages the network to complete the masked information during training. Concretely, given the feature token tensor $$\mathbf{f} \in \mathbb{R}^{H \times W \times C}$$, the features tokens are randomly replaced with the `[mask token]` with probability $$p_{IM}$$ (mask ratio).
 
 # Experiments
 
