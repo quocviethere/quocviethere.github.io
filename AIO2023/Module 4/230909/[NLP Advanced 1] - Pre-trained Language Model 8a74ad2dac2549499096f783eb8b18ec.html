@@ -1,0 +1,688 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>[NLP Advanced 1] - Pre-trained Language Model</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="8a74ad2d-ac25-4949-9096-f783eb8b18ec" class="page serif"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1692607431225-5f4564c8f132?ixlib=rb-4.0.3&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="https://www.notion.so/icons/language_red.svg"/></div><h1 class="page-title">[NLP Advanced 1] - Pre-trained Language Model</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Tags</th><td><span class="selected-value select-value-color-yellow">Extra Class</span></td></tr><tr class="property-row property-row-status"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesStatus"><path d="M8.75488 1.02344C8.75488 0.613281 8.41309 0.264648 8.00293 0.264648C7.59277 0.264648 7.25098 0.613281 7.25098 1.02344V3.11523C7.25098 3.51855 7.59277 3.86719 8.00293 3.86719C8.41309 3.86719 8.75488 3.51855 8.75488 3.11523V1.02344ZM3.91504 5.0293C4.20215 5.31641 4.69434 5.32324 4.97461 5.03613C5.26855 4.74902 5.26855 4.25684 4.98145 3.96973L3.53906 2.52051C3.25195 2.2334 2.7666 2.21973 2.47949 2.50684C2.19238 2.79395 2.18555 3.28613 2.47266 3.57324L3.91504 5.0293ZM10.9629 4.01758C10.6826 4.30469 10.6826 4.79688 10.9697 5.08398C11.2568 5.37109 11.749 5.36426 12.0361 5.07715L13.4854 3.62793C13.7725 3.34082 13.7725 2.84863 13.4785 2.55469C13.1982 2.27441 12.7061 2.27441 12.4189 2.56152L10.9629 4.01758ZM15.0234 8.78906C15.4336 8.78906 15.7822 8.44727 15.7822 8.03711C15.7822 7.62695 15.4336 7.28516 15.0234 7.28516H12.9385C12.5283 7.28516 12.1797 7.62695 12.1797 8.03711C12.1797 8.44727 12.5283 8.78906 12.9385 8.78906H15.0234ZM0.975586 7.28516C0.56543 7.28516 0.223633 7.62695 0.223633 8.03711C0.223633 8.44727 0.56543 8.78906 0.975586 8.78906H3.07422C3.48438 8.78906 3.83301 8.44727 3.83301 8.03711C3.83301 7.62695 3.48438 7.28516 3.07422 7.28516H0.975586ZM12.0361 10.9902C11.749 10.71 11.2568 10.71 10.9629 10.9971C10.6826 11.2842 10.6826 11.7764 10.9697 12.0635L12.4258 13.5127C12.7129 13.7998 13.2051 13.793 13.4922 13.5059C13.7793 13.2256 13.7725 12.7266 13.4854 12.4395L12.0361 10.9902ZM2.52051 12.4395C2.22656 12.7266 2.22656 13.2188 2.50684 13.5059C2.79395 13.793 3.28613 13.7998 3.57324 13.5127L5.02246 12.0703C5.31641 11.7832 5.31641 11.291 5.03613 11.0039C4.74902 10.7168 4.25684 10.71 3.96973 10.9971L2.52051 12.4395ZM8.75488 12.9658C8.75488 12.5557 8.41309 12.207 8.00293 12.207C7.59277 12.207 7.25098 12.5557 7.25098 12.9658V15.0576C7.25098 15.4609 7.59277 15.8096 8.00293 15.8096C8.41309 15.8096 8.75488 15.4609 8.75488 15.0576V12.9658Z"></path></svg></span>Type</th><td><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Done</span></td></tr><tr class="property-row property-row-file"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesFile"><path d="M12.5938 8.44043L7.54883 13.4854C6.26367 14.7773 4.54102 14.6475 3.44043 13.54C2.32617 12.4326 2.20312 10.7168 3.49512 9.4248L10.3926 2.52734C11.1445 1.77539 12.2725 1.63867 13.0039 2.37695C13.7422 3.11523 13.6055 4.22949 12.8535 4.98828L6.08594 11.7627C5.77832 12.0703 5.41602 11.9814 5.2041 11.7764C4.99902 11.5576 4.91016 11.2021 5.21777 10.8877L9.93457 6.1709C10.1738 5.93164 10.1875 5.58301 9.96191 5.35059C9.72949 5.13184 9.38086 5.13867 9.1416 5.37793L4.39746 10.1152C3.67285 10.8535 3.7002 11.9746 4.34961 12.624C5.05371 13.3281 6.12012 13.3145 6.8584 12.5762L13.6602 5.77441C14.9795 4.45508 14.9316 2.71875 13.7764 1.55664C12.6416 0.428711 10.8779 0.34668 9.55176 1.66602L2.61328 8.61816C0.883789 10.3477 1 12.8291 2.57227 14.4014C4.14453 15.9668 6.63281 16.0898 8.3623 14.3672L13.4414 9.28809C13.6738 9.0625 13.667 8.64551 13.4346 8.41992C13.209 8.18066 12.833 8.21484 12.5938 8.44043Z"></path></svg></span>Deliverables</th><td><span style="margin-right:6px"><a href="https://drive.google.com/drive/folders/1Jl0oNucHz9kXfa9GJNg5oIB0Qa4cbcLe">slides</a></span></td></tr><tr class="property-row property-row-last_edited_time"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesCreatedAt"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM4.54102 8.91211H7.99316C8.30078 8.91211 8.54004 8.67285 8.54004 8.37207V3.8877C8.54004 3.58691 8.30078 3.34766 7.99316 3.34766C7.69238 3.34766 7.45312 3.58691 7.45312 3.8877V7.83203H4.54102C4.2334 7.83203 4.00098 8.06445 4.00098 8.37207C4.00098 8.67285 4.2334 8.91211 4.54102 8.91211Z"></path></svg></span>Last edited time</th><td><time>@September 12, 2023 12:01 PM</time></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Lecturer</th><td><span class="selected-value select-value-color-brown">TA Thái</span></td></tr></tbody></table></header><div class="page-body"><p id="9388e04b-89a3-452a-bcbe-0c65f74181a0" class=""><mark class="highlight-gray_background"><strong>TABLE OF CONTENTS</strong></mark></p><nav id="f3b044d8-30ea-4805-a279-7ca71c5cd152" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#8b316dc5-9469-4c69-9535-e464f32ae3ab">Language Model</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#72c37845-c741-498a-947a-9b0b1aaebc25">Transformer Architecture</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#4ff70cfb-f132-470e-b737-736a3c713137">Pre-trained Language Model</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#01246a88-7721-44ff-9b30-feae5bef223d">Applications</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#15d64738-88d3-4431-bb3c-f7a215f2a416">Further Reading</a></div></nav><h1 id="8b316dc5-9469-4c69-9535-e464f32ae3ab" class="">Language Model</h1><p id="ac7e511a-ab0f-4550-9864-15d2fa2630ad" class="">The task of predicting what words come next</p><figure id="c4b453d7-402b-4aca-a061-0df751dfe538" class="image"><a href="%5BNLP%20Advanced%201%5D%20-%20Pre-trained%20Language%20Model%208a74ad2dac2549499096f783eb8b18ec/Screen_Shot_2023-09-11_at_14.23.12.png"><img style="width:1630px" src="%5BNLP%20Advanced%201%5D%20-%20Pre-trained%20Language%20Model%208a74ad2dac2549499096f783eb8b18ec/Screen_Shot_2023-09-11_at_14.23.12.png"/></a></figure><p id="07ff4b90-d2d1-45dc-ad90-2935ebda3692" class="">
+</p><p id="dc428d6b-afd0-417a-9a7b-0bfd56ec8a79" class=""><strong>Statistical Language Model:</strong> Compute <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><mi>w</mi><mi mathvariant="normal">∣</mi><mi>h</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(w|h)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord">∣</span><span class="mord mathnormal">h</span><span class="mclose">)</span></span></span></span></span><span>﻿</span></span></p><figure id="fc40faf1-8ae3-4dac-ad9e-7d2425008c86" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>P</mi><mo stretchy="false">(</mo><msub><mi>w</mi><mrow><mn>1</mn><mo>:</mo><mi>n</mi></mrow></msub><mo stretchy="false">)</mo><mo>=</mo><munderover><mo>∏</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mi>P</mi><mo stretchy="false">(</mo><msub><mi>w</mi><mi>i</mi></msub><mi mathvariant="normal">∣</mi><msub><mi>w</mi><mrow><mi>i</mi><mo>−</mo><mi>N</mi><mo>+</mo><mn>1</mn><mo>:</mo><mi>i</mi><mo>−</mo><mn>1</mn></mrow></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">P(w_{1:n}) = \prod_{i=1}^{n}P(w_{i}|w_{i-N+1:i-1})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mrel mtight">:</span><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.929066em;vertical-align:-1.277669em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6513970000000002em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∏</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">P</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">∣</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.328331em;"><span style="top:-2.5500000000000003em;margin-left:-0.02691em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">−</span><span class="mord mathnormal mtight" style="margin-right:0.10903em;">N</span><span class="mbin mtight">+</span><span class="mord mtight">1</span><span class="mrel mtight">:</span><span class="mord mathnormal mtight">i</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span></div></figure><p id="5defb1bf-19ad-4cff-9020-4360e7806bb2" class="">N-gram model with <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mo>=</mo><mn>1</mn><mo separator="true">,</mo><mo>⋯</mo><mtext> </mtext><mo separator="true">,</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">N = 1, \cdots, n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8388800000000001em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="minner">⋯</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">n</span></span></span></span></span><span>﻿</span></span></p><p id="08ccabe5-fe84-487e-b3fc-5a738b2ca6aa" class="">
+</p><p id="fd9e8449-fdd8-44f5-aff5-8a11022addf2" class="">⇒ cannot capture contextual meaning</p><p id="e6d9fb53-b156-412b-9d8a-0f3f0e2a209c" class="">
+</p><p id="960ae6df-e9ea-4c1e-958c-8e2d2a8a42d3" class=""><strong>Neural language model</strong></p><p id="896090d0-a74b-4c0c-91c0-8efd0b225a56" class="">Tận dụng tri thức của các từ phía trước</p><figure id="e87f271d-2088-4fd7-a08b-e644ae07630a" class="image"><a href="%5BNLP%20Advanced%201%5D%20-%20Pre-trained%20Language%20Model%208a74ad2dac2549499096f783eb8b18ec/Screen_Shot_2023-09-09_at_20.11.53.png"><img style="width:432px" src="%5BNLP%20Advanced%201%5D%20-%20Pre-trained%20Language%20Model%208a74ad2dac2549499096f783eb8b18ec/Screen_Shot_2023-09-09_at_20.11.53.png"/></a></figure><p id="6d9a7136-78bb-4c17-82b3-970ef8819e11" class="">Điều kiện dừng:</p><ul id="7c142d28-0a4b-46d0-a571-ccc216a8c511" class="bulleted-list"><li style="list-style-type:disc">thoả mãn độ dài nhất định</li></ul><ul id="ede182c7-25c5-47a5-a841-82c63278c663" class="bulleted-list"><li style="list-style-type:disc">khi gặp token <code>&lt;END&gt;</code></li></ul><figure id="0eed8e3c-88ab-40f0-b7c6-a60dc78be489" class="image"><a href="%5BNLP%20Advanced%201%5D%20-%20Pre-trained%20Language%20Model%208a74ad2dac2549499096f783eb8b18ec/Screen_Shot_2023-09-09_at_20.16.24.png"><img style="width:288px" src="%5BNLP%20Advanced%201%5D%20-%20Pre-trained%20Language%20Model%208a74ad2dac2549499096f783eb8b18ec/Screen_Shot_2023-09-09_at_20.16.24.png"/></a></figure><p id="9e4709f7-889c-4fa5-9f53-a21493061e12" class=""><strong>Multi-task Learning</strong></p><p id="2c920951-1e46-4c4e-986d-d69a55c86d05" class="">POS, NER: Huấn luyện trên cùng 1 embedding</p><p id="e7eaab25-2481-4ad6-a711-6e5811d6213f" class="">Hiểu ngôn ngữ</p><ul id="947d7cab-77a0-45c4-9a0d-0190c97abe5f" class="bulleted-list"><li style="list-style-type:disc">ngữ nghĩa</li></ul><ul id="2529a7b7-fdcb-4fce-bded-732406cfc9ab" class="bulleted-list"><li style="list-style-type:disc">ngữ pháp</li></ul><p id="f5ab5c55-00e5-4169-9695-0dc2b4cf7d7e" class="">
+</p><p id="7a6ca260-93a5-4312-958b-4bcdfe959885" class=""><strong>Sequence-to-sequence models</strong></p><figure id="b9f706ff-b668-4ad3-b3be-4c7ff71fb3bf" class="image"><a href="%5BNLP%20Advanced%201%5D%20-%20Pre-trained%20Language%20Model%208a74ad2dac2549499096f783eb8b18ec/Screen_Shot_2023-09-09_at_20.25.07.png"><img style="width:1416px" src="%5BNLP%20Advanced%201%5D%20-%20Pre-trained%20Language%20Model%208a74ad2dac2549499096f783eb8b18ec/Screen_Shot_2023-09-09_at_20.25.07.png"/></a></figure><p id="39017d53-1ba7-4ded-9ff9-6f903c382917" class=""><strong>Gồm hai phần</strong></p><p id="5843dad4-9676-4677-9ff2-9618bc4a6de7" class="">Encode: mã hoá câu đầu vào thành vector (vector ngữ cảnh)</p><p id="969851f9-eba0-4bfb-a6ea-2954f8310021" class="">Decode: từ vector ngữ cảnh sinh ra từ dự đoán</p><p id="a9e2677a-aab5-497b-92de-6cc3d4e3de4b" class="">He loved to eat ⇒ Er liebte zu essen</p><p id="a81a42ea-ae4c-4d2d-8d7e-2d804105f512" class=""><strong>Downside</strong></p><p id="eaacfda1-0ea2-4ec6-b60f-d09f0a0b1993" class="">Không tận dụng được thông tin phía trước ⇒ đảo câu input đầu vào lại</p><p id="e5be7275-d5e9-4036-9b6f-e237ededfae7" class="">Bottleneck information (nghẽn thông tin)</p><p id="a419a6e0-09a2-4d7e-9ece-06c5c9736498" class="">
+</p><p id="dc9ebc55-83f9-4f9b-95d6-583ab2b91848" class=""><strong>Attention-Transformer</strong></p><figure id="d212d8c4-d5b0-4157-9bd7-29a80a8dc2ac" class="image"><a href="%5BNLP%20Advanced%201%5D%20-%20Pre-trained%20Language%20Model%208a74ad2dac2549499096f783eb8b18ec/Screen_Shot_2023-09-09_at_20.26.58.png"><img style="width:2582px" src="%5BNLP%20Advanced%201%5D%20-%20Pre-trained%20Language%20Model%208a74ad2dac2549499096f783eb8b18ec/Screen_Shot_2023-09-09_at_20.26.58.png"/></a></figure><p id="7bd63219-8a9b-4580-88ee-c568ad605294" class="">Có thể truy cập lại tất cả các từ phía trước bằng cơ chế Attention (thông qua attention score)</p><p id="15eb1955-fc5a-4967-81ae-74ad36ecda0e" class="">→ không bị quên đi những thông tin ở phần phía trước</p><figure id="1c019928-9dab-43d6-98a2-ef0505e751ee" class="image"><a href="%5BNLP%20Advanced%201%5D%20-%20Pre-trained%20Language%20Model%208a74ad2dac2549499096f783eb8b18ec/Screen_Shot_2023-09-09_at_20.27.40.png"><img style="width:2238px" src="%5BNLP%20Advanced%201%5D%20-%20Pre-trained%20Language%20Model%208a74ad2dac2549499096f783eb8b18ec/Screen_Shot_2023-09-09_at_20.27.40.png"/></a></figure><p id="7afece67-17ed-4573-a332-c78ce389a4c6" class="">
+</p><p id="3bc9d813-0461-4dc4-bfae-827de7f6faa8" class="">Gồm hai khối chính: Encode và decode</p><p id="d266f811-628a-4555-8eab-8e15cfdc8afe" class="">Phần quan trọng nhất trong encode là <em>Multi-head Attention</em></p><p id="bd7ce0e2-f465-41e0-9cb6-fd8c5f32ff4b" class="">Mục tiêu cuối cùng của encode là sinh ra vector đại diện cho mỗi từ</p><p id="f0b6b64c-7eff-4865-a9b3-93573f329eac" class="">Phần decode có thêm Masked Multi-head Attention</p><p id="46a23d19-8776-43e1-885c-869a222447cd" class="">⇒ có thể nắm bắt tất cả ngữ cảnh của câu.</p><p id="0a80d0b7-9887-44ad-a96c-ac96cca069f8" class="">Xử lí song song → không còn thông tin về thứ tự</p><p id="2d1ebd23-a139-4316-82ed-8bffca746781" class="">→ <em>Positional Encoding</em></p><p id="c0a70eb8-f5a7-4932-ad4e-e4a856cbfdf4" class="">
+</p><p id="2560b8ae-c640-44ec-be18-798aea926f5a" class=""><strong>Pretrained Language Models</strong></p><p id="ebdc5111-368d-4107-88e9-3bc257ad3642" class="">BERT: chỉ sử dụng khối encode</p><p id="f2677bfb-4bdb-4117-8e70-c4433f2a759d" class="">GPT: chỉ sử dụng khối decode</p><figure id="bab3d4b9-7dff-4a11-8851-6bf510dcf370" class="image"><a href="%5BNLP%20Advanced%201%5D%20-%20Pre-trained%20Language%20Model%208a74ad2dac2549499096f783eb8b18ec/Screen_Shot_2023-09-11_at_16.55.21.png"><img style="width:384px" src="%5BNLP%20Advanced%201%5D%20-%20Pre-trained%20Language%20Model%208a74ad2dac2549499096f783eb8b18ec/Screen_Shot_2023-09-11_at_16.55.21.png"/></a></figure><p id="6b9be318-a091-449f-a83a-0152855366ac" class=""><strong>Large Language Models</strong></p><p id="194bbdb5-1609-4e2f-980e-17d9c67dd8ce" class="">Dữ liệu huấn luyện tăng lên</p><p id="4d722cf0-fc3f-48f1-861e-547f6fb91fb9" class="">Số tham số tăng lên</p><h1 id="72c37845-c741-498a-947a-9b0b1aaebc25" class="">Transformer Architecture</h1><p id="c82d1cea-4123-499a-b9bf-fbebe353441d" class=""><strong>Machine Translation task</strong></p><p id="c67f9181-9793-4682-89bd-d52c934f6d33" class="">Can be formulated as an optimization problem:</p><figure id="af483684-d075-4ff1-8dac-6626b9bad860" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msup><mover accent="true"><mi>w</mi><mo>^</mo></mover><mrow><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></msup><mo>=</mo><mi><munder><mo><mi>a</mi><mi>r</mi><mi>g</mi><mi>m</mi><mi>a</mi><mi>x</mi></mo><msup><mi>w</mi><mrow><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></msup></munder></mi><mi>θ</mi><mo stretchy="false">(</mo><msup><mi>w</mi><mrow><mo stretchy="false">(</mo><mi>s</mi><mo stretchy="false">)</mo></mrow></msup><mo separator="true">,</mo><msup><mi>w</mi><mrow><mo stretchy="false">(</mo><mi>t</mi><mo stretchy="false">)</mo></mrow></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">\hat{w}^{(t)} = \underset{w^{(t)}}{argmax}\theta (w^{(s)},w^{(t)})</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.938em;vertical-align:0em;"></span><span class="mord"><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.69444em;"><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="accent-body" style="left:-0.16666em;"><span class="mord">^</span></span></span></span></span></span></span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.938em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">t</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1.973865em;vertical-align:-1.035865em;"></span><span class="mord"><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.43055999999999994em;"><span style="top:-2.064135em;margin-left:0em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8220357142857143em;"><span style="top:-2.8220357142857138em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5357142857142856em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">t</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span></span></span></span><span style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span><span class="mop"><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">ma</span><span class="mord mathnormal">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.035865em;"><span></span></span></span></span></span></span><span class="mord mathnormal" style="margin-right:0.02778em;">θ</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.938em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">s</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.938em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">(</span><span class="mord mathnormal mtight">t</span><span class="mclose mtight">)</span></span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span></span></div></figure><p id="ababe803-db3b-44fa-af9a-545a577c97be" class="">Seq2Seq </p><figure id="b98e0d0e-73e4-4aa6-b89f-d5c4a662f85a" class="image"><a href="%5BNLP%20Advanced%201%5D%20-%20Pre-trained%20Language%20Model%208a74ad2dac2549499096f783eb8b18ec/Screen_Shot_2023-09-11_at_17.01.14.png"><img style="width:1526px" src="%5BNLP%20Advanced%201%5D%20-%20Pre-trained%20Language%20Model%208a74ad2dac2549499096f783eb8b18ec/Screen_Shot_2023-09-11_at_17.01.14.png"/></a></figure><p id="529f7f34-d6ee-4723-8573-0b167fca1380" class="">
+</p><p id="c0ae0f94-b266-4244-a5f7-788646416c71" class="">Seq2Seq with Attention</p><figure id="4fdb4f31-1cce-416c-a029-927b7d9e7025" class="image"><a href="%5BNLP%20Advanced%201%5D%20-%20Pre-trained%20Language%20Model%208a74ad2dac2549499096f783eb8b18ec/Screen_Shot_2023-09-11_at_17.03.45.png"><img style="width:1620px" src="%5BNLP%20Advanced%201%5D%20-%20Pre-trained%20Language%20Model%208a74ad2dac2549499096f783eb8b18ec/Screen_Shot_2023-09-11_at_17.03.45.png"/></a></figure><figure id="9c36e4c5-2e61-4741-9c97-469d930eeb9b" class="equation"><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><div class="equation-container"><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msup><mi>a</mi><mi>t</mi></msup><mo>=</mo><munderover><mo>∑</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>N</mi></munderover><msubsup><mi>α</mi><mi>i</mi><mi>t</mi></msubsup><msub><mi>h</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a^{t} = \sum_{i=1}^{N}\alpha^{t}_{i}h_{i}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.843556em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.843556em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:3.106005em;vertical-align:-1.277669em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.8283360000000002em;"><span style="top:-1.872331em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight" style="margin-right:0.10903em;">N</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.277669em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.0037em;">α</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8435559999999999em;"><span style="top:-2.4530000000000003em;margin-left:-0.0037em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">t</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span><span class="mord"><span class="mord mathnormal">h</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></span></div></figure><p id="4ea866c1-32ee-481d-beac-9ec0031d2c85" class="">
+</p><p id="7c05e6c9-0698-4697-9eae-aa4c6075efb7" class="">Token Embedding</p><figure id="85dbcbee-5f4e-4a82-aeb4-8117a23c4f9b" class="image"><a href="%5BNLP%20Advanced%201%5D%20-%20Pre-trained%20Language%20Model%208a74ad2dac2549499096f783eb8b18ec/Screen_Shot_2023-09-09_at_20.52.33.png"><img style="width:336px" src="%5BNLP%20Advanced%201%5D%20-%20Pre-trained%20Language%20Model%208a74ad2dac2549499096f783eb8b18ec/Screen_Shot_2023-09-09_at_20.52.33.png"/></a></figure><p id="b6f03ed3-ec5d-4163-8e92-33698341762f" class=""><strong>Why Sinusoid:</strong></p><ul id="b4c54a4a-881c-4208-b5f5-9a9d652f4efb" class="bulleted-list"><li style="list-style-type:disc">Tính chu kỳ</li></ul><ul id="4f7bc145-9296-43d0-98f3-d197acfee16a" class="bulleted-list"><li style="list-style-type:disc"> Mỗi từ được biểu diễn bởi một vector khác nhau</li></ul><p id="f63392af-7257-47a9-953f-e227624cff15" class=""><strong>Multihead Attention</strong></p><figure id="d86f3530-fdfe-4f22-9ae2-5d2cbdca5651" class="image"><a href="%5BNLP%20Advanced%201%5D%20-%20Pre-trained%20Language%20Model%208a74ad2dac2549499096f783eb8b18ec/Screen_Shot_2023-09-11_at_17.24.57.png"><img style="width:1488px" src="%5BNLP%20Advanced%201%5D%20-%20Pre-trained%20Language%20Model%208a74ad2dac2549499096f783eb8b18ec/Screen_Shot_2023-09-11_at_17.24.57.png"/></a></figure><p id="60c0b21b-443c-4a15-b829-76652f093b4b" class="">
+</p><p id="7f1b6e16-9450-4bfe-961e-a48b740e1bd3" class="">Subwords</p><h1 id="4ff70cfb-f132-470e-b737-736a3c713137" class="">Pre-trained Language Model</h1><p id="f2ce7d45-d949-4ce3-a9ef-46164e197ec4" class="">Dữ liệu văn bản chủ yếu là không có nhãn</p><figure id="dbd8e660-628d-4064-b6ae-0df06df68b23" class="image"><a href="%5BNLP%20Advanced%201%5D%20-%20Pre-trained%20Language%20Model%208a74ad2dac2549499096f783eb8b18ec/Screen_Shot_2023-09-11_at_18.51.48.png"><img style="width:1276px" src="%5BNLP%20Advanced%201%5D%20-%20Pre-trained%20Language%20Model%208a74ad2dac2549499096f783eb8b18ec/Screen_Shot_2023-09-11_at_18.51.48.png"/></a></figure><p id="f1da7864-df6c-458f-972f-5bc99d015fa4" class="">
+</p><p id="f2ceaf06-0e6f-412f-8835-94f72ccbf48d" class=""><strong>BERT</strong></p><p id="31c7de0f-fccf-4fb6-bc47-da77d4386310" class="">chỉ có khối encode</p><p id="0e761828-2dcd-4d12-b0a1-3197233ff178" class="">Từ một từ biểu diễn thành 1 vector gồm <style>@import url('https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.13.2/katex.min.css')</style><span data-token-index="0" contenteditable="false" class="notion-text-equation-token" style="user-select:all;-webkit-user-select:all;-moz-user-select:all"><span></span><span><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi></mrow><annotation encoding="application/x-tex">d</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">d</span></span></span></span></span><span>﻿</span></span> chiều</p><p id="46188263-f9c7-45c0-a121-0443853f2bc3" class="">2 bài toán:</p><ul id="be259b7b-5d4a-4433-8532-8f32887e6d35" class="bulleted-list"><li style="list-style-type:disc">Masked Language Modeling</li></ul><ul id="7d738b6d-5488-437b-a191-3d624d974734" class="bulleted-list"><li style="list-style-type:disc">Next Sentence Prediction</li></ul><p id="c3606970-46bb-476c-b29f-06346f93ab6d" class="">BART</p><p id="74bf1e50-d34a-493b-8f15-8a20d3c7a1c0" class="">GPT</p><h1 id="01246a88-7721-44ff-9b30-feae5bef223d" class="">Applications</h1><p id="840738a5-bf60-4ae6-9dfb-a1585a060b83" class=""> Text Classification</p><p id="10b5eba0-0539-4851-a3ea-d4375da831e0" class="">Machine Translation</p><p id="da395eb0-97cf-47b7-bd4a-d9b5225c5c3a" class="">Question Answering</p><h1 id="15d64738-88d3-4431-bb3c-f7a215f2a416" class="">Further Reading</h1><ul id="e77513d4-9dea-4b66-9062-ded68e73603f" class="bulleted-list"><li style="list-style-type:disc"><a href="https://web.stanford.edu/class/cs224n/readings/cs224n-2019-notes05-LM_RNN.pdf">CS224N lecture notes on language models</a></li></ul><ul id="65ff28ce-7897-472c-bb23-13d2eadfd104" class="bulleted-list"><li style="list-style-type:disc"><a href="https://web.stanford.edu/~jurafsky/slp3/3.pdf">Dan Jurafsky’s book on language models</a></li></ul><ul id="74de0ca4-c8cc-42c5-a680-4b719922683d" class="bulleted-list"><li style="list-style-type:disc"><a href="https://arxiv.org/pdf/2108.07258.pdf">On the Opportunities and Risks of Foundation Models</a></li></ul><ul id="fa4d4b04-2673-4c8e-a83e-922a8a9fcf1a" class="bulleted-list"><li style="list-style-type:disc"><a href="https://arxiv.org/pdf/2005.14165.pdf">Language Models are Few-Shot Learners</a></li></ul><ul id="b2c14275-e3e3-4991-ba56-b0d4bdf8d7b3" class="bulleted-list"><li style="list-style-type:disc"><a href="https://arxiv.org/pdf/1810.04805.pdf">BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</a></li></ul><ul id="6e751f19-9cde-4e29-b823-abd44abaefdc" class="bulleted-list"><li style="list-style-type:disc"><a href="https://arxiv.org/pdf/1910.13461.pdf">BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension</a></li></ul><p id="9211d0b9-f533-4ed4-a0d7-051fb1ebaa56" class="">
+</p></div></article></body></html>
