@@ -60,6 +60,12 @@ layout: null
                 <span>CV</span>
               </a>
 
+              <a class="external-link button is-light"
+              href="https://scholar.google.com/citations?user={{ site.google_scholar }}">
+              <span class="icon"><i class="ai ai-google-scholar"></i></span>
+              <span>Scholar</span>
+              </a>
+
               <a class="external-link button is-light" href="https://github.com/{{ site.github_username }}">
                 <span class="icon"><i class="fab fa-github"></i></span>
                 <span>Github</span>
@@ -132,8 +138,21 @@ layout: null
         {% endfor %}
       </div>
       <p class="publication-description">{{ publication.description }}</p>
-      <!-- Publication Links. -->
-      <!--/ Publication Links. -->
+            <!-- Publication Links. -->
+            <div class="publication-links buttons field has-addons">
+
+              <a class="external-link button is-small is-ghost" href="{{ publication.link }}">
+                <span class="icon"><i class="ai ai-arxiv"></i></span>
+                <span>Springer</span>
+              </a>
+              {% if publication.github %}
+              <a class="external-link button is-small is-ghost" href="https://github.com/{{ publication.github }}">
+                <span class="icon"><i class="fa fab fa-github"></i></span>
+                <span>Code</span>
+              </a>
+              {% endif %}
+            </div>
+            <!--/ Publication Links. -->
     </div>
   </div>
 </div>
