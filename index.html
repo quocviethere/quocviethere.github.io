@@ -97,15 +97,17 @@ layout: null
 
   <section class="section">
     <div class="container is-max-desktop">
-  
+
       <h2 class="title is-3">News</h2>
       <div class="content">
-        {% for news in site.data.news %}
-        <p><b>{{ news.date }}</b>   {{ news.description | markdownify | remove: '<p>' | remove: '</p>' }}</p>
-        {% endfor %}
+        <ul>
+          {% for news in site.data.news %}
+          <li>
+            <b>{{ news.date }}</b>: {{ news.description | markdownify | remove: '<p>' | remove: '</p>' }}
+          </li>
+          {% endfor %}
+        </ul>
       </div>
-    </div>
-  </section>
 
       <h2 class="title is-3">Publications</h2>
 
