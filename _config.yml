@@ -28,6 +28,7 @@ url: "https://quocviethere.github.io" # the base hostname & protocol for your si
 twitter_username: quocviethere
 github_username: quocviethere
 linkedin_username: quocviethere
+scholar_username: VDy8eA8AAAAJ
 # Build settings
 theme: minima
 plugins:
