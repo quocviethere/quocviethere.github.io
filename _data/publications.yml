@@ -1,3 +1,13 @@
+- id: attention-free
+  title: "Performance Insights of Attention-free Language Models in Sentiment Analysis: A Case Study for E commerce Platforms in Vietnam"
+  venue: ICICCT, 2024
+  description: "We explore the use of attention-free language models (BiLSTM, TextCNN, gMLP, Hyena) by comprehensively analysing and comparing their performance with RoBERTA models and show that such attention-free models can achieve comparable results with significantly fewer parameters."
+  authors:
+    - vietnq
+    - quangnn
+    - kingn
+    - thanhdnh
+
 - id: lstm-comparison
   title: "An Exploratory Comparison of LSTM and BiLSTM in Stock Price Prediction"
   venue: ICICCT, 2023
@@ -10,14 +20,4 @@
     - kingn
     - huudt
     - toannd
-    - thanhdnh
-
-
-- id: attention-free
-  title: "Performance Insights of Attention-free Language Models in Sentiment Analysis: A Case Study for E commerce Platforms in Vietnam"
-  venue: ICICCT, 2024
-  authors:
-    - vietnq
-    - quangnn
-    - kingn
     - thanhdnh
