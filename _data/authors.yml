@@ -33,3 +33,22 @@ huudt:
   middle_name: Trong
   last_name: Dinh
   website: https://github.com/dinhtronghuu
+
+
+hanguyen:
+  first_name: Ha
+  middle_name: Q.K.
+  last_name: Nguyen
+
+
+uyenmai:
+  first_name: Uyen
+  middle_name: T.M.
+  last_name: Mai
+
+huyennguyen:
+  first_name: Huyen
+  middle_name: T.T.
+  last_name: Nguyen
+
+

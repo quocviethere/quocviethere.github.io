@@ -7,6 +7,17 @@
     - kingn
     - thanhdnh
 
+- id: new-dec
+  title: "Customer Intent Mining from Service Inquiries with Improved Deep Embedded Clustering"
+  venue: Under review at Journal of Uncertain Systems.
+  authors:
+    - hanguyen
+    - huyennguyen
+    - uyenmai
+    - vietnq
+    - quangnn
+    - thanhdnh
+
 - id: lstm-comparison
   title: "An Exploratory Comparison of LSTM and BiLSTM in Stock Price Prediction"
   venue: ICICCT, 2023
