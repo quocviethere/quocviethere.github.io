@@ -1,3 +1,14 @@
+- id: new-dec
+  title: "Customer Intent Mining from Service Inquiries with Improved Deep Embedded Clustering"
+  venue: Journal of Uncertain Systems.
+  authors:
+    - hanguyen
+    - huyennguyen
+    - uyenmai
+    - vietnq
+    - quangnn
+    - thanhdnh
+
 - id: attention-free
   title: "Performance Insights of Attention-free Language Models in Sentiment Analysis: A Case Study for E commerce Platforms in Vietnam"
   venue: ICICCT, 2024
@@ -5,17 +16,6 @@
     - vietnq
     - quangnn
     - kingn
-    - thanhdnh
-
-- id: new-dec
-  title: "Customer Intent Mining from Service Inquiries with Improved Deep Embedded Clustering"
-  venue: Under review at Journal of Uncertain Systems.
-  authors:
-    - hanguyen
-    - huyennguyen
-    - uyenmai
-    - vietnq
-    - quangnn
     - thanhdnh
 
 - id: lstm-comparison
