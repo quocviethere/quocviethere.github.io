@@ -18,8 +18,8 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Viet Quoc Nguyen
-name: Viet Quoc Nguyen
+title: Viet Nguyen
+name: Viet Nguyen
 email: quocviethere@gmail.com
 description: >-
   I am a junior majoring in Data Science at [University of Economics Ho Chi Minh City (UEH)](https://www.ueh.edu.vn/en/)
