@@ -23,7 +23,7 @@ name: Viet Nguyen
 email: quocviethere@gmail.com
 description: >-
   I am a junior majoring in Data Science at [University of Economics Ho Chi Minh City (UEH)](https://www.ueh.edu.vn/en/). Generally, my research interest include developing scalable vision-language models that
-can tackles various downstream tasks. Feel free to contact me via quocviethere@gmail.com for collaboration. 
+can tackles various downstream tasks. Feel free to contact me via quocviethere [at] gmail.com for collaboration. 
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://quocviethere.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: quocviethere
