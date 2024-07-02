@@ -1,0 +1,25 @@
+project:
+  type: website
+
+website:
+  title: "Viet Nguyen"
+  navbar:
+    left:
+      - href: index.qmd
+        text: About
+      - pubs.qmd
+      - notes.qmd
+  twitter-card:
+    creator: "@dragonstyle"
+    site: "@rstudio"
+
+format:
+  html:
+    theme: Simplex
+    max-width: 2000px
+    navbar-bg: "#5b5b5b"	
+    linkcolor: "#16537e"
+    toc-color: "#16537e"
+    css: styles.css
+    linestretch: 1.5
+    toc: true

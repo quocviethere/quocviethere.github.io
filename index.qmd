@@ -1,0 +1,39 @@
+---
+title: "Viet Nguyen"
+about:
+  id: hero-heading
+  template: solana
+  image: portrait.png
+  image-width: 8em
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com/quocviethere
+    - icon: scholar
+      text: Scholar
+      href: https://scholar.google.com/citations?user=VDy8eA8AAAAJ&hl=en
+    - icon: CV
+      text: CV
+      href: CV.pdf   
+---
+
+# About me
+
+Hi, I am currently a junior student majoring in Data Science at [University of Economics Ho Chi Minh City (UEH)](https://en.ueh.edu.vn/). 
+My research lies in multimodal models <br> and generative models. I'm also keen to work on models' interpretability.
+
+# News
+
+- **Apr 2024**: I received the UEH Young Researcher 2024 Award.
+- **Feb 2024**: Our paper has been accepted at Journal of Uncertain Systems.
+- **Mar 2023**: Our paper has been accepted at ICICCT - 2023.
+- **Feb 2023**: I received the UEH Young Researcher 2023 Award.
+- **Aug 2021**: I was awarded the UEH Admission Scholarship.
+
+# Media Coverage
+
+- [UEH Data Science student published 3 Scopus-indexed papers (in Vietnamese)](https://tuyensinh.ueh.edu.vn/bai-viet/tuyen-sinh-dai-hoc-2024-sinh-vien-nganh-khoa-hoc-du-lieu-ueh-cong-bo-3-cong-trinh-nghien-cuu-khoa-hoc-thuoc-danh-muc-scopus/)
+
+# Contact
+
+Email: quocviethere [at] gmail.com

@@ -1,0 +1,19 @@
+---
+title: "Publications"
+---
+
+## Conferences
+
+**Performance Insights of Attention-free Language Models in Sentiment Analysis: A Case Study for E-commerce Platforms in Vietnam**
+<br><u>Nguyen Q. Viet</u>, Nguyen N. Quang, Nguyen King, Dang N.H. Thanh. 
+*8th International Conference on Inventive Communication and Computational Technologies (ICICCT2024)*
+
+**[An Exploratory Comparison of LSTM and BiLSTM in Stock Prediction](https://link.springer.com/chapter/10.1007/978-981-99-5166-6_35)**
+<br><u>Nguyen Q. Viet</u>, Nguyen N. Quang, Nguyen King, Dinh T. Huu, Nguyen D. Toan, Dang N.H. Thanh.
+*7th International Conference on Inventive Communication and Computational Technologies (ICICCT2023)* 
+
+## Journals
+
+**[Customer Intent Mining from Service Inquiries with Improved Deep Embedded Clustering](https://www.worldscientific.com/doi/10.1142/S175289092440004X)**
+<br>Nguyen Q.K. Ha, Nguyen T.T. Huyen, Mai T.M. Uyen, <u>Nguyen Q. Viet</u>, Nguyen N. Quang, Dang N.H. Thanh.
+*Journal of Uncertain Systems*

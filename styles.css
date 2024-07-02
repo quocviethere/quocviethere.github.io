@@ -1,0 +1,13 @@
+body {
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+}
+
+.justified-text {
+    text-align: justify; /* Justifies text alignment */
+}
+
+.toc-active .nav-link.active {
+    color: rgb(29, 24, 180) !important;
+    background-color: rgb(255, 255, 255);
+    font-weight: bold;
+}
