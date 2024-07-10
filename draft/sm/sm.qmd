@@ -1,0 +1,37 @@
+---
+title: "Generative Score Models"
+date: "07-04-2024"
+bibliography: sm-references.bib
+title-block-banner: '#5b5b5b'
+title-block-banner-color: white
+categories: 
+ - generative_models
+ - score
+---
+
+# Score Matching
+
+## Denoising Score Matching
+
+Denoising Score Matching (DSM) is a variant of score matching that does not require the Hessian computation. Consider a noise distribution $q_{\sigma}(\mathbf{\tilde{x}} \vert \mathbf{x})$, and let $q_{\sigma}(\mathbf{x}) = \int q_{\sigma}(\mathbf{\tilde{x}} \vert \mathbf{x}) p_{d}(\mathbf{x})d\mathbf{x}$. DSM applies the original score matching to the noise-corrupted data distribution $q_{\sigma}(\tilde{\mathbf{x}})$ and the objective can be proven to be equivalent up to a constant. 
+
+While DSM is much faster than score matching, it does have several drawbacks, including (1) it can only recover the noise corrupted data distribution; (2) it is hard to choose the parameters of the noise distribution
+
+## Sliced Score Matching
+
+The main intuition behind Sliced score matching [@song2019sliced] is that working with low-dimensional data is easier than high-dimensional data. Therefore we can project the high-dimensional data into a lower dimension space according to some random direction $\mathbf{v}$.
+
+Projecting $s_d(\mathbf{x})$ and $s_{m}(\mathbf{x};\boldsymbol{\theta})$ onto some random direction $\mathbf{v}$ and propose to compare their average difference along that random direction. Consider the following objective as an alternative to the Fisher Divergence:
+$$
+L(\boldsymbol{\theta};p_{\mathbf{v}}) := \dfrac{1}{2} \mathbb{E}_{p_{\mathbf{v}}} \mathbb{E}_{p_{\mathbf{d}}} [(\mathbf{v}^{T}s_{m}(\mathbf{x};\boldsymbol{\theta}) -\mathbf{v}^{T}s_{d}(\mathbf{x}))^{2}]  
+$$
+where $\mathbf{v} \sim p_\mathbf{v}$ and $\mathbf{x} \sim p_{d}$ are independent, and we require 
+
+For instance $p_\mathbf{v}$ can be a multivariate standard normal $\mathcal{N}(0,I_{D})$, a multivariate Rademacher distribution (the uniform distribution over $\{+1\}^{D}$), or a uniform distribution over a hypersphere $\mathbb{S}^{D-1}$.
+$$J(\boldsymbol{\theta};p_{\mathbf{v}}):=\mathbb{E}_{{p_{\mathbf{v}}}}\mathbb{E}_{{p_{d}}}{\left[\mathbf{v}^{\mathsf{T}}\nabla_{\mathbf{x}}\boldsymbol{s}_{m}(\mathbf{x};\boldsymbol{\theta})\mathbf{v}+\frac{1}{2}\left(\mathbf{v}^{\mathsf{T}}\boldsymbol{s}_{m}(\mathbf{x};\boldsymbol{\theta})\right)^{2}\right]}$$
+
+# High order score models with denoising
+
+# References
+
+Meng, Chenlin, et al. "Estimating high order gradients of the data distribution by denoising." Advances in Neural Information Processing Systems 34 (2021): 25359-25369.

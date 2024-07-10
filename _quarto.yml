@@ -3,6 +3,7 @@ project:
 
 website:
   title: "Viet Nguyen"
+  favicon: favicon.png
   navbar:
     left:
       - href: index.qmd

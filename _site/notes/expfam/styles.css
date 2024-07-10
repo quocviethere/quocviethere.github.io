@@ -1,0 +1,10 @@
+.justify-text {
+    text-align: justify;
+  }
+
+.quarto-title-block .title-block-banner {
+  background-color: #4CAF50; /* Replace with your desired color */
+  color: white; /* Adjust text color as needed */
+  padding: 10px;
+  border-radius: 5px;
+}

@@ -9,26 +9,29 @@ about:
     - icon: github
       text: Github
       href: https://github.com/quocviethere
-    - icon: scholar
+    - icon: book
       text: Scholar
       href: https://scholar.google.com/citations?user=VDy8eA8AAAAJ&hl=en
-    - icon: CV
+    - icon: file-earmark-text
       text: CV
-      href: CV.pdf   
+      href: CV.pdf
+css: styles.css   
 ---
 
 # About me
 
 Hi, I am currently a junior student majoring in Data Science at [University of Economics Ho Chi Minh City (UEH)](https://en.ueh.edu.vn/). 
-My research lies in multimodal models <br> and generative models. I'm also keen to work on models' interpretability.
+My research lies in multimodal models <br> and generative models. I am also keen to work on models' interpretability.
 
 # News
 
+- **July 2024**: I will join [VIASM's Summer School Series on Mathematical Statistics and Machine Learning](https://viasm.edu.vn/en/hdkh/somsaml2024)
 - **Apr 2024**: I received the UEH Young Researcher 2024 Award.
-- **Feb 2024**: Our paper has been accepted at Journal of Uncertain Systems.
-- **Mar 2023**: Our paper has been accepted at ICICCT - 2023.
+- **Feb 2024**: [Our paper](https://www.worldscientific.com/doi/10.1142/S175289092440004X) has been accepted at Journal of Uncertain Systems.
+- **Mar 2023**: [Our paper](https://link.springer.com/chapter/10.1007/978-981-99-5166-6_35) has been accepted at ICICCT2023.
 - **Feb 2023**: I received the UEH Young Researcher 2023 Award.
 - **Aug 2021**: I was awarded the UEH Admission Scholarship.
+
 
 # Media Coverage
 
