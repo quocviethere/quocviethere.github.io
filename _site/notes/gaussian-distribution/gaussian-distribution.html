@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-07-03">
+<meta name="dcterms.date" content="2024-07-04">
 
 <title>Gaussian Distribution – Viet Nguyen</title>
 <style>
@@ -31,6 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../favicon.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -177,7 +178,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">July 3, 2024</p>
+        <p class="date">July 4, 2024</p>
       </div>
     </div>
     
@@ -196,6 +197,7 @@ window.Quarto = {
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
   <li><a href="#univariate-gaussian-distribution" id="toc-univariate-gaussian-distribution" class="nav-link" data-scroll-target="#univariate-gaussian-distribution">Univariate Gaussian distribution</a>
   <ul class="collapse">
+  <li><a href="#normalizing-constant" id="toc-normalizing-constant" class="nav-link" data-scroll-target="#normalizing-constant">Normalizing constant</a></li>
   <li><a href="#gaussian-distribution-derivation-from-principle-of-maximum-entropy" id="toc-gaussian-distribution-derivation-from-principle-of-maximum-entropy" class="nav-link" data-scroll-target="#gaussian-distribution-derivation-from-principle-of-maximum-entropy">Gaussian distribution derivation from Principle of Maximum entropy</a></li>
   </ul></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
@@ -211,40 +213,44 @@ window.Quarto = {
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>The Gaussian distribution, also known as the normal distribution, is the most extensively utilized probability distribution for real-valued random variables <span class="math inline">\(y \in \mathbb{R}\)</span>. In this article, we will delve into the definition of the (multivariate) Gaussian distribution and elucidate why it assumes its particular form through the <em>principle of maximum entropy</em>. Additionally, we will derive the normalization constant in the Gaussian probability density function (PDF).</p>
+<p>The Gaussian distribution, also known as the normal distribution, is the most extensively utilized probability distribution for real-valued random variables <span class="math inline">\(y \in \mathbb{R}\)</span>. In this article, we will delve into the definition of the Gaussian distribution and elucidate why it assumes its particular form through the <em>principle of maximum entropy</em>. Additionally, we will derive the normalization constant in the Gaussian probability density function (PDF).</p>
 <hr>
 </section>
 <section id="univariate-gaussian-distribution" class="level1">
 <h1>Univariate Gaussian distribution</h1>
-<p>The PDF of the Gaussian is given by: <span class="math display">\[
+<p>The PDF of the Gaussian is given by: <span id="eq-gaussian-pdf"><span class="math display">\[
 \mathcal{N}(y \vert \mu, \sigma^{2})= \dfrac{1}{\sqrt{2\pi \sigma^{2}}}\exp\left(-\dfrac{1}{2\sigma^{2}} (y-\mu)^{2}\right)
-\]</span> where <span class="math inline">\(\sqrt{2\pi\sigma^{2}}\)</span> is the normalization constant that is needed to ensure that the density integrates to 1 and <span class="math inline">\(\mu\)</span> is the mean, <span class="math inline">\(\sigma^{2}\)</span> is the variance.</p>
-<p>![[Screenshot 2024-06-27 at 11.08.51.png]]</p>
-<p>In the special case when <span class="math inline">\(\mu = 0\)</span> and <span class="math inline">\(\sigma^{2} = 1\)</span>, <em>i.e.</em> <span class="math inline">\(\mathcal{N}(0,1)\)</span>, we can get what’s called the Standard Normal distribution. It is common in the literature to denote standard normal r.v. as <span class="math inline">\(z\)</span> instead of <span class="math inline">\(x\)</span> <span class="math display">\[
+\tag{1}\]</span></span></p>
+<p>where <span class="math inline">\(\sqrt{2\pi\sigma^{2}}\)</span> is the normalization constant that is needed to ensure that the density integrates to 1 and <span class="math inline">\(\mu\)</span> is the mean, <span class="math inline">\(\sigma^{2}\)</span> is the variance.</p>
+<p>In the special case when <span class="math inline">\(\mu = 0\)</span> and <span class="math inline">\(\sigma^{2} = 1\)</span>, <em>i.e.</em> <span class="math inline">\(\mathcal{N}(0,1)\)</span>, we can get what’s called the Standard Normal distribution. It is common in the literature to denote standard normal r.v. as <span class="math inline">\(z\)</span> instead of <span class="math inline">\(x\)</span> <span id="eq-normal-pdf"><span class="math display">\[
 f(z) = c\exp\left(- \frac{z^{2}}{2}\right)
-\]</span> where <span class="math inline">\(c\)</span> is a normalizing constant. ## Normalizing constant</p>
-<p>In order for one function to be a valid PDF, it has to integrate 1. Concretely, in the case of the Standard Normal PDF, we have to find a constant <span class="math inline">\(c\)</span> such that: <span class="math display">\[
+\tag{2}\]</span></span> where <span class="math inline">\(c\)</span> is a normalizing constant.</p>
+<section id="normalizing-constant" class="level2">
+<h2 class="anchored" data-anchor-id="normalizing-constant">Normalizing constant</h2>
+<p>In order for one function to be a valid PDF, it has to integrate 1. Concretely, in the case of the Standard Normal PDF, as expressed in <a href="#eq-normal-pdf" class="quarto-xref">Equation&nbsp;2</a>, we have to find a constant <span class="math inline">\(c\)</span> such that: <span class="math display">\[
 c\int_{-\infty}^{\infty}\exp \left(\frac{-z^{2}}{2}\right)dz = 1
 \]</span> And so we need to find the value of <span class="math inline">\(c\)</span> by calculating <span class="math inline">\(1 / \int_{-\infty}^{\infty}\exp \left(\frac{-z^{2}}{2}\right)dz\)</span>. We start with integral: <span class="math display">\[
 \int_{-\infty}^{\infty}\exp \left(\frac{-z^{2}}{2}\right)dz
 \]</span> However, the problem is that there exist no closed-form solution to this integral. In fact, <span class="math inline">\(\exp\left(\frac{-z^{2}}{2}\right)\)</span> is an example of what is known as <em><a href="https://en.wikipedia.org/wiki/Nonelementary_integral">nonelementary integral</a></em>.</p>
-<p>So we need to come up with another clever way to deal with this integral instead of solving it directly. We can start by writing it twice: <span class="math display">\[
-\int_{-\infty}^{\infty}\exp \left(\frac{-z^{2}}{2}\right)dz \int_{-\infty}^{\infty}\exp \left(\frac{-z^{2}}{2}\right)dz \tag{1}
-\]</span> For the sake of convenience, we can rewrite (1) as follows: <span class="math display">\[
-\int_{-\infty}^{\infty}\exp \left(\frac{-x^{2}}{2}\right)dx \int_{-\infty}^{\infty}\exp \left(\frac{-y^{2}}{2}\right)dy = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\exp\left(-\frac{x^{2}+y^{2}}{2}\right)dxdy \tag{2}
-\]</span> Now comes the “<em>pulling the rabbit out of the hat</em>” moment, where we’ll transform (2) into <a href="https://en.wikipedia.org/wiki/Polar_coordinate_system#:~:text=In%20mathematics%2C%20the%20polar%20coordinate,angle%20from%20a%20reference%20direction.">Polar coordinate</a> instead of <a href="https://en.wikipedia.org/wiki/Cartesian_coordinate_system">Cartesian coordinate</a>.</p>
-<p>![[Screenshot 2024-06-20 at 20.34.10.png]]</p>
+<p>So we need to come up with another clever way to deal with this integral instead of solving it directly. We can start by writing it twice: <span id="eq-int1"><span class="math display">\[
+\int_{-\infty}^{\infty}\exp \left(\frac{-z^{2}}{2}\right)dz \int_{-\infty}^{\infty}\exp \left(\frac{-z^{2}}{2}\right)dz
+\tag{3}\]</span></span> For the sake of convenience, we can rewrite <a href="#eq-int1" class="quarto-xref">Equation&nbsp;3</a> as follows: <span id="eq-int2"><span class="math display">\[
+\int_{-\infty}^{\infty}\exp \left(\frac{-x^{2}}{2}\right)dx \int_{-\infty}^{\infty}\exp \left(\frac{-y^{2}}{2}\right)dy = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\exp\left(-\frac{x^{2}+y^{2}}{2}\right)dxdy
+\tag{4}\]</span></span></p>
+<p>Now comes the “<em>pulling the rabbit out of the hat</em>” moment, where we’ll transform <a href="#eq-int2" class="quarto-xref">Equation&nbsp;4</a> into <a href="https://en.wikipedia.org/wiki/Polar_coordinate_system#:~:text=In%20mathematics%2C%20the%20polar%20coordinate,angle%20from%20a%20reference%20direction.">Polar coordinate</a> instead of <a href="https://en.wikipedia.org/wiki/Cartesian_coordinate_system">Cartesian coordinate</a>.</p>
 <p>This is known as Change of variables (please refer to <a href="https://projects.iq.harvard.edu/sites/projects.iq.harvard.edu/files/stat110/files/math_review_handout.pdf">Harvard Stat110’s Math Handout</a> as a quick reference). We can thus write the following: <span class="math display">\[
 \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\exp\left(-\frac{x^{2}+y^{2}}{2}\right)dxdy = \int_{0}^{2\pi}\int_{0}^{2\pi} \left[\exp\left(\frac{-r^{2}}{2}\right)r\right] drd\theta \tag{3}
-\]</span> Let <span class="math inline">\(u= \frac{-r^{2}}{2}\)</span>, therefore <span class="math inline">\(du = rdr\)</span>, we can rewrite (3) as: <span class="math display">\[
+\]</span></p>
+<p>Let <span class="math inline">\(u= \frac{-r^{2}}{2}\)</span>, therefore <span class="math inline">\(du = rdr\)</span>, we can rewrite (3) as:</p>
+<p><span class="math display">\[
 \int_{0}^{2\pi}\left(\underbrace{\int_{0}^{2\pi} \exp(-u)du}_{=1} \right)d\theta = \int_{0}^{2\pi}1 d\theta = 2\pi
-\]</span> Recall that we write the term <span class="math inline">\(\int_{-\infty}^{\infty}\exp \left(\frac{-z^{2}}{2}\right)dz\)</span> twice (as in (1)), therefore <span class="math inline">\(c = \dfrac{1}{\sqrt{2\pi}}\)</span>.</p>
+\]</span></p>
+<p>Recall that we write the term <span class="math inline">\(\int_{-\infty}^{\infty}\exp \left(\frac{-z^{2}}{2}\right)dz\)</span> twice (as in <a href="#eq-int1" class="quarto-xref">Equation&nbsp;3</a>), therefore <span class="math inline">\(c = \dfrac{1}{\sqrt{2\pi}}\)</span>.</p>
 <p>We can apply the exact same procedure for the Normal distribution (instead of the Standard Normal distribution) to see why <span class="math inline">\(c = \dfrac{1}{\sqrt{2\pi \sigma^2}}\)</span>. In fact, what we’ve just derived is the special case when <span class="math inline">\(\sigma^{2}=1\)</span>.</p>
+</section>
 <section id="gaussian-distribution-derivation-from-principle-of-maximum-entropy" class="level2">
 <h2 class="anchored" data-anchor-id="gaussian-distribution-derivation-from-principle-of-maximum-entropy">Gaussian distribution derivation from Principle of Maximum entropy</h2>
-<blockquote class="blockquote">
-<p>[!definition] For a continuous random variable <span class="math inline">\(X\)</span> with a probability density function <span class="math inline">\(p(x)\)</span>, the entropy <span class="math inline">\(h(X)\)</span> is defined as: <span class="math display">\[h(X) = -\int_{-\infty}^{\infty} f(x) \log f(x) \, dx\]</span></p>
-</blockquote>
+<p>For a continuous random variable <span class="math inline">\(X\)</span> with a probability density function <span class="math inline">\(p(x)\)</span>, the entropy <span class="math inline">\(h(X)\)</span> is defined as: <span class="math display">\[h(X) = -\int_{-\infty}^{\infty} f(x) \log f(x) \, dx\]</span></p>
 <p>Maximum entropy pdf with fixed mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^{2}\)</span></p>
 <p><span class="math display">\[\mathcal{L}= -\int_{-\infty}^{\infty} p(x) \log p(x)dx + \lambda_0\left(\int_{-\infty}^{\infty} p(x)dx - 1 \right) + \lambda_1\left(\int_{-\infty}^{\infty}(x-\mu)^2 p(x) dx - \sigma^2 \right)\]</span> Taking the derivative of <span class="math inline">\(\mathcal{L}\)</span> w.r.t. <span class="math inline">\(p(x)\)</span>, we obtain: <span class="math display">\[
 \dfrac{\partial \mathcal{L}}{\partial p(x)}= -(1+\log p(x)) + \lambda_{0}+\lambda_{1}(x-\mu)^{2} \tag{4}
@@ -267,7 +273,7 @@ p(x) &amp;= \exp(\lambda_{0}+ \lambda(x-\mu)^{2}-1) \\
 <ul>
 <li><a href="https://chrispiech.github.io/probabilityForComputerScientists/en/part2/normal/">Stanford CS109’s course reader</a></li>
 <li><a href="https://cs229.stanford.edu/section/gaussians.pdf">Stanford CS229 handout</a></li>
-<li>https://michael-franke.github.io/intro-data-analysis/the-maximum-entropy-principle.html</li>
+<li><a href="https://michael-franke.github.io/intro-data-analysis/the-maximum-entropy-principle.html">An Introduction to Data Analysis by Michael Franke</a></li>
 </ul>
 
 

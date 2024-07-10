@@ -1,0 +1,104 @@
+---
+title: "Gaussian Distribution"
+date: 07-04-2024
+categories: 
+ - stats
+title-block-banner: '#5b5b5b'
+title-block-banner-color: white
+---
+
+
+# Introduction
+
+The Gaussian distribution, also known as the normal distribution, is the most extensively utilized probability distribution for real-valued random variables $y \in \mathbb{R}$. In this article, we will delve into the definition of the Gaussian distribution and elucidate why it assumes its particular form through the *principle of maximum entropy*. Additionally, we will derive the normalization constant in the Gaussian probability density function (PDF).
+
+---
+# Univariate Gaussian distribution
+
+The PDF of the Gaussian is given by:
+$$
+\mathcal{N}(y \vert \mu, \sigma^{2})= \dfrac{1}{\sqrt{2\pi \sigma^{2}}}\exp\left(-\dfrac{1}{2\sigma^{2}} (y-\mu)^{2}\right)
+$$ {#eq-gaussian-pdf}
+
+where $\sqrt{2\pi\sigma^{2}}$  is the normalization constant that is needed to ensure that the density integrates to 1 and $\mu$ is the mean, $\sigma^{2}$ is the variance.
+
+
+In the special case when $\mu = 0$ and $\sigma^{2} = 1$, *i.e.* $\mathcal{N}(0,1)$, we can get what's called the Standard Normal distribution. It is common in the literature to denote standard normal r.v. as $z$ instead of $x$
+$$
+f(z) = c\exp\left(- \frac{z^{2}}{2}\right)
+$$ {#eq-normal-pdf}
+where $c$ is a normalizing constant.
+
+## Normalizing constant
+
+In order for one function to be a valid PDF, it has to integrate 1. Concretely, in the case of the Standard Normal PDF, as expressed in @eq-normal-pdf, we have to find a constant $c$ such that:
+$$
+c\int_{-\infty}^{\infty}\exp \left(\frac{-z^{2}}{2}\right)dz = 1
+$$
+And so we need to find the value of $c$ by calculating $1 / \int_{-\infty}^{\infty}\exp \left(\frac{-z^{2}}{2}\right)dz$.  We start with integral:
+$$
+\int_{-\infty}^{\infty}\exp \left(\frac{-z^{2}}{2}\right)dz
+$$
+However, the problem is that there exist no closed-form solution to this integral. In fact, $\exp\left(\frac{-z^{2}}{2}\right)$ is an example of what is known as *[nonelementary integral](https://en.wikipedia.org/wiki/Nonelementary_integral)*.
+
+So we need to come up with another clever way to deal with this integral instead of solving it directly. We can start by writing it twice:
+$$
+\int_{-\infty}^{\infty}\exp \left(\frac{-z^{2}}{2}\right)dz \int_{-\infty}^{\infty}\exp \left(\frac{-z^{2}}{2}\right)dz
+$$ {#eq-int1}
+For the sake of convenience, we can rewrite @eq-int1 as follows:
+$$
+\int_{-\infty}^{\infty}\exp \left(\frac{-x^{2}}{2}\right)dx \int_{-\infty}^{\infty}\exp \left(\frac{-y^{2}}{2}\right)dy = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\exp\left(-\frac{x^{2}+y^{2}}{2}\right)dxdy 
+$$ {#eq-int2}
+
+Now comes the "*pulling the rabbit out of the hat*" moment, where we'll transform @eq-int2 into [Polar coordinate](https://en.wikipedia.org/wiki/Polar_coordinate_system#:~:text=In%20mathematics%2C%20the%20polar%20coordinate,angle%20from%20a%20reference%20direction.) instead of [Cartesian coordinate](https://en.wikipedia.org/wiki/Cartesian_coordinate_system). 
+
+This is known as Change of variables (please refer to [Harvard Stat110's Math Handout](https://projects.iq.harvard.edu/sites/projects.iq.harvard.edu/files/stat110/files/math_review_handout.pdf) as a quick reference). We can thus write the following:
+$$
+\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\exp\left(-\frac{x^{2}+y^{2}}{2}\right)dxdy = \int_{0}^{2\pi}\int_{0}^{2\pi} \left[\exp\left(\frac{-r^{2}}{2}\right)r\right] drd\theta \tag{3}
+$$
+
+Let $u= \frac{-r^{2}}{2}$, therefore $du = rdr$, we can rewrite (3) as:
+
+$$
+\int_{0}^{2\pi}\left(\underbrace{\int_{0}^{2\pi} \exp(-u)du}_{=1} \right)d\theta = \int_{0}^{2\pi}1 d\theta = 2\pi 
+$$
+
+Recall that we write the term $\int_{-\infty}^{\infty}\exp \left(\frac{-z^{2}}{2}\right)dz$ twice (as in @eq-int1), therefore $c = \dfrac{1}{\sqrt{2\pi}}$.
+
+We can apply the exact same procedure for the Normal distribution (instead of the Standard Normal distribution) to see why $c = \dfrac{1}{\sqrt{2\pi \sigma^2}}$. In fact, what we've just derived is the special case when $\sigma^{2}=1$.
+
+## Gaussian distribution derivation from Principle of Maximum entropy
+
+For a continuous random variable $X$ with a probability density function $p(x)$, the entropy $h(X)$ is defined as: $$h(X) = -\int_{-\infty}^{\infty} f(x) \log f(x) \, dx$$
+
+Maximum entropy pdf with fixed mean $\mu$ and variance $\sigma^{2}$
+
+$$\mathcal{L}= -\int_{-\infty}^{\infty} p(x) \log p(x)dx + \lambda_0\left(\int_{-\infty}^{\infty} p(x)dx - 1 \right) + \lambda_1\left(\int_{-\infty}^{\infty}(x-\mu)^2 p(x) dx - \sigma^2 \right)$$
+Taking the derivative of $\mathcal{L}$ w.r.t. $p(x)$, we obtain:
+$$
+\dfrac{\partial \mathcal{L}}{\partial p(x)}= -(1+\log p(x)) + \lambda_{0}+\lambda_{1}(x-\mu)^{2} \tag{4}
+$$
+Setting (4) to be equal to 0, we can derive that: $p(x) = \exp(\lambda_{0}+ \lambda(x-\mu)^{2}-1)$.
+
+We now have to make sure that the above form of $p(x)$ satisfies the initial constraints. In particular:
+$$
+\int_{-\infty}^{\infty} exp(\lambda_{0}+ \lambda(x-\mu)^{2}-1)dx = 1 \tag{5} 
+$$
+and
+$$
+\int_{-\infty}^{\infty}(x-\mu)^{2}\exp(\lambda_{0}+ \lambda(x-\mu)^{2}-1)dx = \sigma^{2} \tag{6}
+$$
+From (5) and (6), we obtain that $\exp(\lambda_{0}-1)\sqrt{\dfrac{-\pi}{\lambda_{1}}}=1$ and $\lambda_{1} = \sqrt{\dfrac{1}{2\pi}}\dfrac{1}{\sigma}$. Plug in everything together, we have that:
+$$
+\begin{aligned}
+p(x) &= \exp(\lambda_{0}+ \lambda(x-\mu)^{2}-1) \\
+&= \exp(\lambda_{0}-1) + \exp(\lambda_{1}(x-\mu)^{2})\\ 
+&= \dfrac{1}{\sqrt{2\pi \sigma^{2}}}\exp\left(-\dfrac{(x-\mu)^{2}}{2\sigma^{2}}\right) 
+\end{aligned}
+$$
+which is exactly the form of the PDF of the Gaussian distribution.
+
+# References
+- [Stanford CS109's course reader](https://chrispiech.github.io/probabilityForComputerScientists/en/part2/normal/)
+- [Stanford CS229 handout](https://cs229.stanford.edu/section/gaussians.pdf)
+- [An Introduction to Data Analysis by Michael Franke](https://michael-franke.github.io/intro-data-analysis/the-maximum-entropy-principle.html)
