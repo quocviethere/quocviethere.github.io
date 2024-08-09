@@ -79,9 +79,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: [{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-categories"],
+      searchColumns: [],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -211,8 +211,14 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(0)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#statistics" id="toc-statistics" class="nav-link active" data-scroll-target="#statistics">Statistics</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
@@ -221,9 +227,16 @@ window.Quarto = {
 
 
 <p>Welcome! On this page you can find a collection of my scribe notes for self-reference and learning purposes. Sometimes the notes can be woefully incomplete and so please don’t judge. There certainly are typos and other technical errors. I would really appreciate it if you could contact me via <a href="quocviethere@gmail.com">my email</a> for further feedback and discussion.</p>
+<section id="statistics" class="level1">
+<h1>Statistics</h1>
+<ul>
+<li><a href="(https://quocviethere.github.io/notes/gaussian-distribution/gaussian-distribution.html)">Gaussian distribution</a></li>
+<li><a href="https://quocviethere.github.io/notes/expfam/expfam.html">The Exponential Family</a>quả</li>
+</ul>
 
 
 
+</section>
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="listing-actions-group">

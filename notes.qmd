@@ -1,13 +1,11 @@
 ---
 title: "Notes"
 listing:
-  contents: notes/**/*.qmd
+  contents: notes
   sort: "date desc"
   type: default
-  categories: true
   sort-ui: false
   filter-ui: true
-  fields: [date, title, categories]
   feed: true
 page-layout: full
 css: styles.css
@@ -16,3 +14,7 @@ title-block-banner-color: white
 ---
 
 Welcome! On this page you can find a collection of my scribe notes for self-reference and learning purposes. Sometimes the notes can be woefully incomplete and so please don't judge. There certainly are typos and other technical errors. I would really appreciate it if you could contact me via [my email](quocviethere@gmail.com) for further feedback and discussion.
+
+# Statistics
+- [Gaussian distribution]((https://quocviethere.github.io/notes/gaussian-distribution/gaussian-distribution.html))
+- [The Exponential Family](https://quocviethere.github.io/notes/expfam/expfam.html)quả
