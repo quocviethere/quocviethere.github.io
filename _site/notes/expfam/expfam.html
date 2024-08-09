@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-07-10">
 
-<title>Notes – Viet Nguyen</title>
+<title>The Exponential Family – Viet Nguyen</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +24,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,35 +68,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: [{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: [],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <style>
 
       .quarto-title-block .quarto-title-banner h1,
@@ -146,8 +116,8 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
-<meta name="twitter:title" content="Notes – Viet Nguyen">
+<link rel="stylesheet" href="../../styles.css">
+<meta name="twitter:title" content="The Exponential Family – Viet Nguyen">
 <meta name="twitter:description" content="">
 <meta name="twitter:creator" content="@dragonstyle">
 <meta name="twitter:site" content="@rstudio">
@@ -161,7 +131,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Viet Nguyen</span>
     </a>
   </div>
@@ -172,15 +142,15 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./pubs.html"> 
+    <a class="nav-link" href="../../pubs.html"> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./notes.html" aria-current="page"> 
+    <a class="nav-link" href="../../notes.html"> 
 <span class="menu-text">Notes</span></a>
   </li>  
 </ul>
@@ -193,21 +163,30 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Notes</h1>
-                      </div>
+    <div class="quarto-title column-body">
+      <h1 class="title">The Exponential Family</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">stats</div>
+              </div>
+                  </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page-left">
+  <div class="quarto-title-meta">
 
       
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">July 10, 2024</p>
+      </div>
+    </div>
     
       
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -215,43 +194,199 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#statistics" id="toc-statistics" class="nav-link active" data-scroll-target="#statistics">Statistics</a></li>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation">Motivation</a>
+  <ul class="collapse">
+  <li><a href="#definition" id="toc-definition" class="nav-link" data-scroll-target="#definition">Definition</a></li>
+  </ul></li>
+  <li><a href="#properties-of-the-exponential-family" id="toc-properties-of-the-exponential-family" class="nav-link" data-scroll-target="#properties-of-the-exponential-family">Properties of the Exponential Family</a>
+  <ul class="collapse">
+  <li><a href="#random-sampling" id="toc-random-sampling" class="nav-link" data-scroll-target="#random-sampling">Random sampling</a></li>
+  <li><a href="#log-partition-generates-moments" id="toc-log-partition-generates-moments" class="nav-link" data-scroll-target="#log-partition-generates-moments">Log-partition generates moments</a></li>
+  <li><a href="#convexity" id="toc-convexity" class="nav-link" data-scroll-target="#convexity">Convexity</a></li>
+  </ul></li>
+  <li><a href="#connection-with-fisher-information-matrix" id="toc-connection-with-fisher-information-matrix" class="nav-link" data-scroll-target="#connection-with-fisher-information-matrix">Connection with Fisher information matrix</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading">Further Reading</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
 
-<p>Welcome! On this page you can find a collection of my scribe notes for self-reference and learning purposes. Sometimes the notes can be woefully incomplete and so please don’t judge. There certainly are typos and other technical errors. I would really appreciate it if you could contact me via <a href="quocviethere@gmail.com">my email</a> for further feedback and discussion.</p>
-<section id="statistics" class="level1">
-<h1>Statistics</h1>
+<section id="motivation" class="level1">
+<h1>Motivation</h1>
+<p>The classical motivation for exponential family comes from the&nbsp;<em>principle of maximum entropy</em>. Suppose we are given a random sample <span class="math inline">\(\{X_{1}, X_{2}, \cdots, X_{n}\}\)</span>&nbsp;from some distribution, and we compute the empirical expectations of certain functions that we choose: <span class="math display">\[\hat{\mu}_{i}=\dfrac{1}{n}\sum\limits_{j=1}^{n}T_{i}(X_{j}) \quad \text{for } i \in \{1, \cdots, s\}\]</span> Based on these empirical expectations we want to infer a full probability distribution on the samples. A distribution <span class="math inline">\(p\)</span> is said to be <em>consistent</em> <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> with the data we observe if: <span class="math display">\[
+\hat{\mu}_{i} = \mathbb{E}_{p}[T_{i}(X_{i})] \quad \text{for } i \in \{1, \cdots, s\}.
+\]</span> We want to pick a consistent distribution but there are infinitely many distributions to choose from. The <strong>principle of maximum entropy</strong> suggests to pick the distribution with the largest entropy <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, which is defined as: <span class="math display">\[
+H(p) = - \int p(x) \log p(x) dx
+\]</span> Formally, we could pose our problem as finding a distribution <span class="math inline">\(p^{*}\)</span> such that: <span class="math display">\[
+p^{*} = \underset{p}{\text{argmax}} H(p)
+\]</span> Solving this problem, we get an answer that is of the form <a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>: <span class="math display">\[
+p^{*} = \exp \left[\sum\limits_{i=1}^{s}\theta_{i}T_{i}(x) - A(\theta)\right]h(x)
+\]</span> This form motivates the exponential families. # The Exponential Family</p>
+<section id="definition" class="level2">
+<h2 class="anchored" data-anchor-id="definition">Definition</h2>
+<p>The exponential family of probability distributions is defined as a set of distributions whose density can be written in the following form: <span class="math display">\[
+p(x \vert \eta) = h(x)\exp\{\eta^{T}\mathcal{T}(x) - \mathcal{A}(\eta)\},
+\]</span> where: - <span class="math inline">\(\eta\)</span> is often referred to as natural or canonical parameters - <span class="math inline">\(\mathcal{T}(x)\)</span> is the sufficient statistic, because the likelihood for&nbsp;<span class="math inline">\(x\)</span>&nbsp;only depends on&nbsp;<span class="math inline">\(\eta\)</span>&nbsp;and&nbsp;<span class="math inline">\(\mathcal{T}(x)\)</span>&nbsp;transforms&nbsp;<span class="math inline">\(x\)</span>&nbsp;into sufficient statistic, which is something that summarizes the data well. - <span class="math inline">\(\mathcal{A}(\eta)\)</span> is known as the cumulant function, or log-partition function and can be viewed as the logarithm of the normalization factor, i.e.: <span class="math inline">\(\mathcal{A}(\eta) = \log \int h(x) \exp \{\eta^{T}\mathcal{T}(x)\}dx\)</span></p>
+<p>Sometimes, the exponential family can also be represented as: <span class="math display">\[
+p(x \vert \eta) = h(x) g(\eta) \exp \{\eta^{T}\mathcal{T}(x)\}
+\]</span> where the <span class="math inline">\(g(\eta)\)</span> can be interpreted as the coefficient that ensures the distribution is normalized, i.e.: <span class="math display">\[
+g(\eta) = \int h(x) \exp\{\eta^{T}\mathcal{T}(x)\}
+\]</span> ## Examples</p>
+<p>The simplest possible distribution that belongs to the exponential family is the Bernoulli distribution. Recall that we can write the Bernoulli distribution as: <span class="math display">\[
+p(x \vert \mu) = \text{Bern}(x \vert \mu) = \mu^{x}(1-\mu)^{1-x}
+\]</span> which we can rewrite as: <span class="math display">\[
+p(x \vert \mu) = \exp\{x \ln \mu + (1-x)\ln (1-\mu)\} = (1-\mu) \exp \left\{x\ln \left(\dfrac{\mu}{1-\mu}\right) + \ln (1-\mu)\right\}  
+\]</span> We can therefore see that the Bernoulli distribution is in the exponential family distribution where <span class="math inline">\(\mathcal{T}(x) = x; \eta = \ln \left(\dfrac{\mu}{1-\mu}\right)\)</span>. One interesting fact is that when we solve for <span class="math inline">\(\mu\)</span>, we obtain the well-known <em>logistic function</em>. The derivation is as follows: <span class="math display">\[
+\begin{aligned}
+\eta &amp;= \ln \left(\dfrac{\mu}{1-\mu}\right) &amp;&amp; (\text{derived from rewriting Bernoulli distribution})\\
+&amp; \rightarrow \exp(\eta) = \dfrac{\mu}{1-\mu} &amp;&amp; \text{(taking exp on both sides)}\\
+&amp; \rightarrow \mu = \dfrac{\exp(\eta)}{1+\exp(\eta)} &amp;&amp; \text{(by basic algebra)}\\
+&amp; \rightarrow \mu = \dfrac{1}{1+\exp(-\eta)} &amp;&amp; \text{(multiplying by $\exp(-\mu)$)}
+\end{aligned}
+\]</span> There are many common probability distribution that is in the exponential family. The table below listed some of them.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 63%">
+<col style="width: 29%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Distribution</th>
+<th>Probability Density / Mass Function</th>
+<th>(<span class="math inline">\(x\)</span>) Values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Gaussian</td>
+<td><span class="math display">\[ p(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x - \mu)^2}{2\sigma^2}} \]</span></td>
+<td><span class="math display">\[ x \in \mathbb{R} \]</span></td>
+</tr>
+<tr class="even">
+<td>Bernoulli</td>
+<td><span class="math display">\[ p(x) = \alpha^x (1 - \alpha)^{1 - x} \]</span></td>
+<td><span class="math display">\[ x \in \{0, 1\} \]</span></td>
+</tr>
+<tr class="odd">
+<td>Binomial</td>
+<td><span class="math display">\[ p(x) = \binom{n}{x} \alpha^x (1 - \alpha)^{n - x} \]</span></td>
+<td><span class="math display">\[ x \in \{0, 1, 2, \ldots, n\} \]</span></td>
+</tr>
+<tr class="even">
+<td>Multinomial</td>
+<td><span class="math display">\[ p(x) = \frac{n!}{x_1! x_2! \ldots x_n!} \prod_{i=1}^{n} \alpha_i^{x_i} \]</span></td>
+<td><span class="math display">\[ x_i \in \{0, 1, 2, \ldots, n\}, \sum x_i = n \]</span></td>
+</tr>
+<tr class="odd">
+<td>Exponential</td>
+<td><span class="math display">\[ p(x) = \lambda e^{-\lambda x} \]</span></td>
+<td><span class="math display">\[ x \in \mathbb{R}^+ \]</span></td>
+</tr>
+<tr class="even">
+<td>Poisson</td>
+<td><span class="math display">\[ p(x) = \frac{e^{-\lambda} \lambda^x}{x!} \]</span></td>
+<td><span class="math display">\[ x \in \{0, 1, 2, \ldots \} \]</span></td>
+</tr>
+<tr class="odd">
+<td>Dirichlet</td>
+<td><span class="math display">\[ p(x) = \frac{\Gamma \left( \sum_i \alpha_i \right)}{\prod_i \Gamma(\alpha_i)} \prod_i x_i^{\alpha_i - 1} \]</span></td>
+<td><span class="math display">\[ x_i \in [0, 1], \sum x_i = 1 \]</span></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="properties-of-the-exponential-family" class="level1">
+<h1>Properties of the Exponential Family</h1>
+<section id="random-sampling" class="level2">
+<h2 class="anchored" data-anchor-id="random-sampling">Random sampling</h2>
+<p>The exponential family structure is preserved for an i.i.d. sample. If <span class="math inline">\(\{X_{1}, \cdots, X_{n}\}\)</span> are i.i.d. from some distribution in the exponential family <span class="math inline">\(p(x; \theta)\)</span>, then the joint distribution: <span class="math display">\[
+p(x_{1}, \cdots, x_{n};\theta) = \prod_{i=1}^{n}h(x_{i})\exp \left[\sum\limits_{i=1}^{s}\theta_{i}\sum\limits_{j=1}^{n}\mathcal{T}_{i}(x_{j}) - \eta\mathcal{A}(\theta)\right]
+\]</span> is an exponential family with the same natural parameters but with sufficient statistics: <span class="math display">\[
+\mathcal{T}_{i}(x_{1}, \cdots, x_{n)}= \sum\limits_{j=1}^{n}T_i(x_{j})
+\]</span></p>
+</section>
+<section id="log-partition-generates-moments" class="level2">
+<h2 class="anchored" data-anchor-id="log-partition-generates-moments">Log-partition generates moments</h2>
+<p>Taking the derivative of <span class="math inline">\(\mathcal{A}\)</span> w.r.t. <span class="math inline">\(\theta\)</span>, we obtain that:<span class="math display">\[
+\begin{aligned}
+\dfrac{d\mathcal{A}}{d\eta}
+&amp;= \dfrac{d}{d\eta} \log \int \exp(\eta^{T} \mathcal{T}(x))h(x) dx \\
+&amp;= \dfrac{\dfrac{d}{d\eta} \int \exp(\eta^{T} \mathcal{T}(x)h(x)dx}{\int \exp(\eta^{T} \mathcal{T}(x)h(x)dx} \\
+&amp;= \dfrac{\int \mathcal{T}(x) \exp(\eta^{T} \mathcal{T}(x)h(x)dx}{\exp(\mathcal{A}(\eta))} \\
+&amp;= \int \mathcal{T}(x) \exp(\eta \mathcal{T}(x) - \mathcal{A}(\eta))h(x)dx \\
+&amp;= \int \mathcal{T}(x) p(x)dx = \mathbb{E}[\mathcal{T}(x)]
+\end{aligned}
+\]</span>a concrete example, recall that for Bernoulli distribution, we have <span class="math inline">\(\mathcal{A}(\eta) = \log (1+e^{\eta})\)</span>, we can take the first-order derivative of the log-partition function and obtain the mean for Bernoulli random variables: <span class="math display">\[
+\dfrac{d\mathcal{A}}{d\eta} = \dfrac{d}{d\eta} \log (1+e^{\eta}) = \dfrac{e^{\eta}}{1+e^{\eta}} = \dfrac{1}{1+e^{-\eta}} = \sigma(\eta) = \mu
+\]</span> Similarly, we can verify that higher derivatives lead to functions of higher moments as follows: <span class="math display">\[
+\begin{aligned}
+\dfrac{d^{2}\mathcal{A}}{d\eta} &amp;= \dfrac{d\mathcal{A}}{d\eta} \int \mathcal{T}(x)\exp (\eta^{T}\mathcal{T}(x) - \mathcal{A}(\eta))h(x)dx \\
+&amp;= \int \mathcal{T}(x) \exp (\eta^{T}\mathcal{T}(x) - \mathcal{A}(\eta))h(x)(\mathcal{T}(x) - \mathcal{A}'(\eta))dx \\
+&amp;= \int \mathcal{T}(x)p(x)(\mathcal{T}(x) - \mathcal{A}'(x))dx \\
+&amp;= \int \mathcal{T}^{2}(x)p(x)dx - \mathcal{A}'(x)\int \mathcal{T}(x)p(x)dx \\
+&amp;= \mathbb{E}[\mathcal{T}^{2}(x)] - \mathbb{E}[\mathcal{T}(x)]^{2} = \text{Var}[\mathcal{T}(x)]
+\end{aligned}
+\]</span></p>
+</section>
+<section id="convexity" class="level2">
+<h2 class="anchored" data-anchor-id="convexity">Convexity</h2>
+<p>Using Hölder inequality together with this results, we can show that <span class="math inline">\(\mathcal{A}\)</span> is a convex function of <span class="math inline">\(\theta\)</span>. In the case of the exponential family, this means that the covariance matrix (equivalent to the Hessian matrix) of the sufficient statistic <span class="math inline">\(\mathcal{T}_{i}\)</span> is positive semidefinite. Formally, we have the following theorem:</p>
+<blockquote class="blockquote">
+<p><em>The natural parameter space <span class="math inline">\(\mathcal{N}\)</span> is a convex set and the cumulant function <span class="math inline">\(\mathcal{A}(\eta)\)</span> is a convex function. If the family is minimal then <span class="math inline">\(\mathcal{A}(\eta)\)</span> is strictly convex.</em></p>
+</blockquote>
+<p>Here, we say that an exponential family is minimal if the sufficient statistic are not <em>redundant</em>, i.e.&nbsp;there is no set of coefficients <span class="math inline">\(\alpha \in \mathbb{R}^s\)</span>, <span class="math inline">\(\alpha \# 0\)</span> such that: <span class="math display">\[
+\sum\limits_{i=1}^{s}\alpha_{i}\mathcal{T}_{i}(x) = \text{const} \qquad \forall x\in \mathbb{R}
+\]</span></p>
+</section>
+</section>
+<section id="connection-with-fisher-information-matrix" class="level1">
+<h1>Connection with Fisher information matrix</h1>
+<p>Under some regularity condition, the Fisher Information matrix is defined as: <span class="math display">\[
+\mathbf{F}(\eta) \triangleq \mathbb{E}_{p(x\vert \eta)} [\nabla \log p(x \vert \eta) \nabla \log p(x \vert \eta)^{T}] = -\mathbb{E}_{p(x \vert \eta)} [\nabla^{2}\log p(x\vert \eta)]
+\]</span> Recall that in the context of the exponential family, we have</p>
+<p>From the definition of the Fisher Information matrix, we can derive the following: <span class="math display">\[
+\begin{aligned}
+\mathbf{F}(\eta) &amp;= -\mathbb{E}_{p(x\vert \eta)}[\nabla^{2}\log p(x\vert \eta)] &amp;&amp; \text{(by definition)}\\
+&amp;= -\mathbb{E}_{p(x \vert \eta)}[\nabla^{2}_{\eta}(\eta^{T} \mathcal{T}(x) - \mathcal{A(\eta)})] &amp;&amp; \text{(plug in $p(x \vert \eta)$)} \\
+&amp;= \nabla^{2}_{\eta}\mathcal{A} (\eta) = \text{Cov}[\mathcal{T}(x)]
+\end{aligned}
+\]</span> Intuitively, this is telling us that the Hessian of the log-partition function is the same as the Fisher Information matrix, which is the same as the covariance of the sufficient statistic.</p>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
 <ul>
-<li><a href="notes/gaussian-distribution/gaussian-distribution.html">Gaussian distribution</a></li>
-<li><a href="notes/expfam/expfam.html">The Exponential Family</a></li>
+<li><a href="https://www.stat.cmu.edu/~larry/=stat705/Lecture12a.pdf">Lecture Note of 36-705 Intermediate Statistics by Prof.&nbsp;Larry Wasserman</a></li>
+<li><a href="https://people.eecs.berkeley.edu/~jordan/courses/260-spring10/other-readings/chapter8.pdf">The exponential family: Basics</a></li>
+<li>Murphy, K. P. (2023).&nbsp;<em>Probabilistic Machine Learning: Advanced Topics</em>. MIT Press.&nbsp;<a href="http://probml.github.io/book2">http://probml.github.io/book2</a></li>
 </ul>
-
+</section>
+<section id="further-reading" class="level1">
+<h1>Further Reading</h1>
+<ul>
+<li><a href="https://web.stanford.edu/class/stats311/lecture-notes.pdf#page=46.19">Information Theory and Statistics, John C. Duchi. Lecture Notes for Statistics 311/Electrical Engineering 377, Stanford University. 2015-2019.</a></li>
+</ul>
+<hr>
 
 
 </section>
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="listing-actions-group">
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<div class="list quarto-listing-default">
 
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>When a distribution is consistent, it means that the values are spread out in a way that shows a clear and predictable pattern. In other words, if you take multiple samples from the distribution, they should all look similar to each other and follow the same pattern or trend. This consistency makes it easier to understand and predict the behavior of the data.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><strong>Entropy</strong> is a measure of this unpredictability or randomness. In statistics, it tells us how mixed up or uncertain the data is. High entropy means the data is very mixed and unpredictable. Low entropy means the data is more uniform and predictable.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>We will show later that we can actually derive the probability distributions that belong to the exponential family by solving this problem but with different constraints.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

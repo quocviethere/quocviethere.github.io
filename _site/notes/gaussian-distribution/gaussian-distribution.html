@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-07-04">
 
-<title>Viet Nguyen</title>
+<title>Gaussian Distribution – Viet Nguyen</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,22 +24,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./favicon.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../favicon.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -66,10 +68,56 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<style>
 
+      .quarto-title-block .quarto-title-banner h1,
+      .quarto-title-block .quarto-title-banner h2,
+      .quarto-title-block .quarto-title-banner h3,
+      .quarto-title-block .quarto-title-banner h4,
+      .quarto-title-block .quarto-title-banner h5,
+      .quarto-title-block .quarto-title-banner h6
+      {
+        color: white;
+      }
 
-<link rel="stylesheet" href="styles.css">
-<meta name="twitter:title" content="Viet Nguyen">
+      .quarto-title-block .quarto-title-banner {
+        color: white;
+background: #5b5b5b;
+      }
+</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+<meta name="twitter:title" content="Gaussian Distribution – Viet Nguyen">
 <meta name="twitter:description" content="">
 <meta name="twitter:creator" content="@dragonstyle">
 <meta name="twitter:site" content="@rstudio">
@@ -79,11 +127,11 @@ ul.task-list li input[type="checkbox"] {
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Viet Nguyen</span>
     </a>
   </div>
@@ -94,15 +142,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./pubs.html"> 
+    <a class="nav-link" href="../../pubs.html"> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./notes.html"> 
+    <a class="nav-link" href="../../notes.html"> 
 <span class="menu-text">Notes</span></a>
   </li>  
 </ul>
@@ -113,80 +161,125 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Gaussian Distribution</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">stats</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">July 4, 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
+   
   <ul>
-  <li><a href="#about-me" id="toc-about-me" class="nav-link active" data-scroll-target="#about-me">About me</a></li>
-  <li><a href="#news" id="toc-news" class="nav-link" data-scroll-target="#news">News</a></li>
-  <li><a href="#media-coverage" id="toc-media-coverage" class="nav-link" data-scroll-target="#media-coverage">Media Coverage</a></li>
-  <li><a href="#contact" id="toc-contact" class="nav-link" data-scroll-target="#contact">Contact</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#univariate-gaussian-distribution" id="toc-univariate-gaussian-distribution" class="nav-link" data-scroll-target="#univariate-gaussian-distribution">Univariate Gaussian distribution</a>
+  <ul class="collapse">
+  <li><a href="#normalizing-constant" id="toc-normalizing-constant" class="nav-link" data-scroll-target="#normalizing-constant">Normalizing constant</a></li>
+  <li><a href="#gaussian-distribution-derivation-from-principle-of-maximum-entropy" id="toc-gaussian-distribution-derivation-from-principle-of-maximum-entropy" class="nav-link" data-scroll-target="#gaussian-distribution-derivation-from-principle-of-maximum-entropy">Gaussian distribution derivation from Principle of Maximum entropy</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<div class="quarto-about-solana column-body">
-  <div class="about-entity">
-    <div class="entity-contents">
-      <header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Viet Nguyen</h1>
-</div>
-<div class="quarto-title-meta">
-  </div>
-</header> <div class="about-links">
-  <a href="https://github.com/quocviethere" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">Github</span>
-  </a>
-  <a href="https://scholar.google.com/citations?user=VDy8eA8AAAAJ&amp;hl=en" class="about-link" rel="" target="">
-    <i class="bi bi-book"></i>
-     <span class="about-link-text">Scholar</span>
-  </a>
-  <a href="/CV.pdf" class="about-link" rel="" target="">
-    <i class="bi bi-file-earmark-text"></i>
-     <span class="about-link-text">CV</span>
-  </a>
-</div>
-      <div class="about-contents"><main class="content" id="quarto-document-content">
+<main class="content quarto-banner-title-block" id="quarto-document-content">
 
-<section id="about-me" class="level1">
-<h1>About me</h1>
-<p>Hi, I am currently a junior student majoring in Data Science at <a href="https://en.ueh.edu.vn/">University of Economics Ho Chi Minh City (UEH)</a>. My research lies in multimodal models <br> and generative models. I am also keen to work on models’ interpretability.</p>
+
+
+
+
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>The Gaussian distribution, also known as the normal distribution, is the most extensively utilized probability distribution for real-valued random variables <span class="math inline">\(y \in \mathbb{R}\)</span>. In this article, we will delve into the definition of the Gaussian distribution and elucidate why it assumes its particular form through the <em>principle of maximum entropy</em>. Additionally, we will derive the normalization constant in the Gaussian probability density function (PDF).</p>
+<hr>
 </section>
-<section id="news" class="level1">
-<h1>News</h1>
+<section id="univariate-gaussian-distribution" class="level1">
+<h1>Univariate Gaussian distribution</h1>
+<p>The PDF of the Gaussian is given by: <span id="eq-gaussian-pdf"><span class="math display">\[
+\mathcal{N}(y \vert \mu, \sigma^{2})= \dfrac{1}{\sqrt{2\pi \sigma^{2}}}\exp\left(-\dfrac{1}{2\sigma^{2}} (y-\mu)^{2}\right)
+\tag{1}\]</span></span></p>
+<p>where <span class="math inline">\(\sqrt{2\pi\sigma^{2}}\)</span> is the normalization constant that is needed to ensure that the density integrates to 1 and <span class="math inline">\(\mu\)</span> is the mean, <span class="math inline">\(\sigma^{2}\)</span> is the variance.</p>
+<p>In the special case when <span class="math inline">\(\mu = 0\)</span> and <span class="math inline">\(\sigma^{2} = 1\)</span>, <em>i.e.</em> <span class="math inline">\(\mathcal{N}(0,1)\)</span>, we can get what’s called the Standard Normal distribution. It is common in the literature to denote standard normal r.v. as <span class="math inline">\(z\)</span> instead of <span class="math inline">\(x\)</span> <span id="eq-normal-pdf"><span class="math display">\[
+f(z) = c\exp\left(- \frac{z^{2}}{2}\right)
+\tag{2}\]</span></span> where <span class="math inline">\(c\)</span> is a normalizing constant.</p>
+<section id="normalizing-constant" class="level2">
+<h2 class="anchored" data-anchor-id="normalizing-constant">Normalizing constant</h2>
+<p>In order for one function to be a valid PDF, it has to integrate 1. Concretely, in the case of the Standard Normal PDF, as expressed in <a href="#eq-normal-pdf" class="quarto-xref">Equation&nbsp;2</a>, we have to find a constant <span class="math inline">\(c\)</span> such that: <span class="math display">\[
+c\int_{-\infty}^{\infty}\exp \left(\frac{-z^{2}}{2}\right)dz = 1
+\]</span> And so we need to find the value of <span class="math inline">\(c\)</span> by calculating <span class="math inline">\(1 / \int_{-\infty}^{\infty}\exp \left(\frac{-z^{2}}{2}\right)dz\)</span>. We start with integral: <span class="math display">\[
+\int_{-\infty}^{\infty}\exp \left(\frac{-z^{2}}{2}\right)dz
+\]</span> However, the problem is that there exist no closed-form solution to this integral. In fact, <span class="math inline">\(\exp\left(\frac{-z^{2}}{2}\right)\)</span> is an example of what is known as <em><a href="https://en.wikipedia.org/wiki/Nonelementary_integral">nonelementary integral</a></em>.</p>
+<p>So we need to come up with another clever way to deal with this integral instead of solving it directly. We can start by writing it twice: <span id="eq-int1"><span class="math display">\[
+\int_{-\infty}^{\infty}\exp \left(\frac{-z^{2}}{2}\right)dz \int_{-\infty}^{\infty}\exp \left(\frac{-z^{2}}{2}\right)dz
+\tag{3}\]</span></span> For the sake of convenience, we can rewrite <a href="#eq-int1" class="quarto-xref">Equation&nbsp;3</a> as follows: <span id="eq-int2"><span class="math display">\[
+\int_{-\infty}^{\infty}\exp \left(\frac{-x^{2}}{2}\right)dx \int_{-\infty}^{\infty}\exp \left(\frac{-y^{2}}{2}\right)dy = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\exp\left(-\frac{x^{2}+y^{2}}{2}\right)dxdy
+\tag{4}\]</span></span></p>
+<p>Now comes the “<em>pulling the rabbit out of the hat</em>” moment, where we’ll transform <a href="#eq-int2" class="quarto-xref">Equation&nbsp;4</a> into <a href="https://en.wikipedia.org/wiki/Polar_coordinate_system#:~:text=In%20mathematics%2C%20the%20polar%20coordinate,angle%20from%20a%20reference%20direction.">Polar coordinate</a> instead of <a href="https://en.wikipedia.org/wiki/Cartesian_coordinate_system">Cartesian coordinate</a>.</p>
+<p>This is known as Change of variables (please refer to <a href="https://projects.iq.harvard.edu/sites/projects.iq.harvard.edu/files/stat110/files/math_review_handout.pdf">Harvard Stat110’s Math Handout</a> as a quick reference). We can thus write the following: <span class="math display">\[
+\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}\exp\left(-\frac{x^{2}+y^{2}}{2}\right)dxdy = \int_{0}^{2\pi}\int_{0}^{2\pi} \left[\exp\left(\frac{-r^{2}}{2}\right)r\right] drd\theta \tag{3}
+\]</span></p>
+<p>Let <span class="math inline">\(u= \frac{-r^{2}}{2}\)</span>, therefore <span class="math inline">\(du = rdr\)</span>, we can rewrite (3) as:</p>
+<p><span class="math display">\[
+\int_{0}^{2\pi}\left(\underbrace{\int_{0}^{2\pi} \exp(-u)du}_{=1} \right)d\theta = \int_{0}^{2\pi}1 d\theta = 2\pi
+\]</span></p>
+<p>Recall that we write the term <span class="math inline">\(\int_{-\infty}^{\infty}\exp \left(\frac{-z^{2}}{2}\right)dz\)</span> twice (as in <a href="#eq-int1" class="quarto-xref">Equation&nbsp;3</a>), therefore <span class="math inline">\(c = \dfrac{1}{\sqrt{2\pi}}\)</span>.</p>
+<p>We can apply the exact same procedure for the Normal distribution (instead of the Standard Normal distribution) to see why <span class="math inline">\(c = \dfrac{1}{\sqrt{2\pi \sigma^2}}\)</span>. In fact, what we’ve just derived is the special case when <span class="math inline">\(\sigma^{2}=1\)</span>.</p>
+</section>
+<section id="gaussian-distribution-derivation-from-principle-of-maximum-entropy" class="level2">
+<h2 class="anchored" data-anchor-id="gaussian-distribution-derivation-from-principle-of-maximum-entropy">Gaussian distribution derivation from Principle of Maximum entropy</h2>
+<p>For a continuous random variable <span class="math inline">\(X\)</span> with a probability density function <span class="math inline">\(p(x)\)</span>, the entropy <span class="math inline">\(h(X)\)</span> is defined as: <span class="math display">\[h(X) = -\int_{-\infty}^{\infty} f(x) \log f(x) \, dx\]</span></p>
+<p>Maximum entropy pdf with fixed mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^{2}\)</span></p>
+<p><span class="math display">\[\mathcal{L}= -\int_{-\infty}^{\infty} p(x) \log p(x)dx + \lambda_0\left(\int_{-\infty}^{\infty} p(x)dx - 1 \right) + \lambda_1\left(\int_{-\infty}^{\infty}(x-\mu)^2 p(x) dx - \sigma^2 \right)\]</span> Taking the derivative of <span class="math inline">\(\mathcal{L}\)</span> w.r.t. <span class="math inline">\(p(x)\)</span>, we obtain: <span class="math display">\[
+\dfrac{\partial \mathcal{L}}{\partial p(x)}= -(1+\log p(x)) + \lambda_{0}+\lambda_{1}(x-\mu)^{2} \tag{4}
+\]</span> Setting (4) to be equal to 0, we can derive that: <span class="math inline">\(p(x) = \exp(\lambda_{0}+ \lambda(x-\mu)^{2}-1)\)</span>.</p>
+<p>We now have to make sure that the above form of <span class="math inline">\(p(x)\)</span> satisfies the initial constraints. In particular: <span class="math display">\[
+\int_{-\infty}^{\infty} exp(\lambda_{0}+ \lambda(x-\mu)^{2}-1)dx = 1 \tag{5}
+\]</span> and <span class="math display">\[
+\int_{-\infty}^{\infty}(x-\mu)^{2}\exp(\lambda_{0}+ \lambda(x-\mu)^{2}-1)dx = \sigma^{2} \tag{6}
+\]</span> From (5) and (6), we obtain that <span class="math inline">\(\exp(\lambda_{0}-1)\sqrt{\dfrac{-\pi}{\lambda_{1}}}=1\)</span> and <span class="math inline">\(\lambda_{1} = \sqrt{\dfrac{1}{2\pi}}\dfrac{1}{\sigma}\)</span>. Plug in everything together, we have that: <span class="math display">\[
+\begin{aligned}
+p(x) &amp;= \exp(\lambda_{0}+ \lambda(x-\mu)^{2}-1) \\
+&amp;= \exp(\lambda_{0}-1) + \exp(\lambda_{1}(x-\mu)^{2})\\
+&amp;= \dfrac{1}{\sqrt{2\pi \sigma^{2}}}\exp\left(-\dfrac{(x-\mu)^{2}}{2\sigma^{2}}\right)
+\end{aligned}
+\]</span> which is exactly the form of the PDF of the Gaussian distribution.</p>
+</section>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
 <ul>
-<li><strong>July 2024</strong>: I will join <a href="https://viasm.edu.vn/en/hdkh/somsaml2024">VIASM’s Summer School Series on Mathematical Statistics and Machine Learning</a></li>
-<li><strong>Apr 2024</strong>: I received the UEH Young Researcher 2024 Award.</li>
-<li><strong>Feb 2024</strong>: <a href="https://www.worldscientific.com/doi/10.1142/S175289092440004X">Our paper</a> has been accepted at Journal of Uncertain Systems.</li>
-<li><strong>Mar 2023</strong>: <a href="https://link.springer.com/chapter/10.1007/978-981-99-5166-6_35">Our paper</a> has been accepted at ICICCT2023.</li>
-<li><strong>Feb 2023</strong>: I received the UEH Young Researcher 2023 Award.</li>
-<li><strong>Aug 2021</strong>: I was awarded the UEH Admission Scholarship.</li>
+<li><a href="https://chrispiech.github.io/probabilityForComputerScientists/en/part2/normal/">Stanford CS109’s course reader</a></li>
+<li><a href="https://cs229.stanford.edu/section/gaussians.pdf">Stanford CS229 handout</a></li>
+<li><a href="https://michael-franke.github.io/intro-data-analysis/the-maximum-entropy-principle.html">An Introduction to Data Analysis by Michael Franke</a></li>
 </ul>
-</section>
-<section id="media-coverage" class="level1">
-<h1>Media Coverage</h1>
-<ul>
-<li><a href="https://ueh.edu.vn/en/news/ueh-data-science-students-publishing-3-research-articles-in-scopus-71645">UEH Data Science Students Publishing 3 Research Articles In Scopus</a></li>
-</ul>
-</section>
-<section id="contact" class="level1">
-<h1>Contact</h1>
-<p>Email: quocviethere [at] gmail.com</p>
 
 
 </section>
-</main></div>
-    </div>
-    <img src="portrait.png" class="about-image
-  rounded " style="width: 8em;">
-  </div>
-</div>
- <!-- /main -->
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -207,6 +300,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
