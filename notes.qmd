@@ -17,4 +17,4 @@ Welcome! On this page you can find a collection of my scribe notes for self-refe
 
 # Statistics
 - [Gaussian distribution]((https://quocviethere.github.io/notes/gaussian-distribution/gaussian-distribution.html))
-- [The Exponential Family](https://quocviethere.github.io/notes/expfam/expfam.html)quả
+- [The Exponential Family](https://quocviethere.github.io/notes/expfam/expfam.html)
